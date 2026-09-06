@@ -1,0 +1,32 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "superpowers@git+https://github.com/obra/superpowers.git"
+  ],
+  "provider": {
+    "lmstudio": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "LM Studio (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:1234/v1"
+      },
+      "models": {
+        "empero-ai/Qwythos-9B-Claude-Mythos-5-1M-GGUF": {
+          "name": "Qwythos-9B-Claude-Mythos-5-1M-GGUF"
+        }
+      }
+    }
+  },
+  "mcp": {
+    "repowise": {
+      "type": "local",
+      "command": [
+        "repowise",
+        "mcp",
+        "--transport",
+        "stdio"
+      ],
+      "enabled": true
+    }
+  }
+}
