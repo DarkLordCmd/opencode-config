@@ -107,552 +107,552 @@ git push
 
 | Скил | Назначение |
 |------|------------|
-| `advanced-evaluation` | This skill should be used for advanced LLM evaluation: LLM-as-judge systems, direct scoring, pairwise comparison, rubric calibration, evaluator bias mitigation, confidence scoring, and automated quality assessment. |
-| `agent-memory` | Session memory management, browser-based QA testing, and multi-agent coordination skill. Use when the user wants to persist learnings across sessions, review what the agent has learned about their codebase, prune stale knowledge, run browser-based testing with real Chromium, coordinate multiple A... |
-| `agent-ui-design` | Design patterns for chat interfaces, agent UX, streaming UI, and tool visualization. Covers chat architecture, message types, streaming rendering, tool execution cards, and sandbox UI derived from 21st.dev Agents SDK documentation and templates. |
-| `ai-engineer` | Expert AI/LLM engineering guidance. Use when the user asks about RAG, OpenAI, Azure OpenAI, prompt engineering, AI agents, MCP, vector databases, or evaluation pipelines. |
-| `bdi-mental-states` | This skill should be used when modeling agent mental states with BDI concepts: beliefs, desires, intentions, RDF-to-belief transformations, rational agency traces, cognitive agents, BDI ontologies, and neuro-symbolic AI integration. |
-| `context-compression` | This skill should be used when long-running agent sessions need context compression, structured summarization, compaction, token-per-task optimization, or durable handoff summaries that preserve decisions, files, risks, and next actions. |
-| `context-degradation` | This skill should be used for diagnosing and mitigating context degradation: lost-in-middle failures, context poisoning, context clash, context confusion, attention-pattern issues, and agent performance degradation caused by accumulated or conflicting context. |
-| `context-fundamentals` | This skill should be used to explain or reason about the foundational concepts of context engineering: what context is, the anatomy of a context window, how attention mechanics work, the U-shaped attention curve, why context quality matters more than quantity, and the mental models needed to inte... |
-| `context-optimization` | This skill should be used for improving context efficiency: context budgeting, observation masking, prefix or KV-cache strategy, partitioning, token-cost reduction, retrieval scoping, and extending effective context capacity without lowering answer quality. |
-| `core-actionbook` | Internal support skill for actionbook MCP selectors used by Rust documentation research workflows. Use only when another rust-skills workflow explicitly requests actionbook-backed selectors. |
-| `core-agent-browser` | Internal support skill for agent-browser CLI workflows used by rust-learner, docs-researcher, and crate-researcher. Use only when browser automation is explicitly required. |
-| `core-dynamic-skills` | Internal command support for dynamic Rust crate skill management. Use only when explicitly invoked by /sync-crate-skills, /clean-crate-skills, or /update-crate-skill. |
-| `core-fix-skill-docs` | Internal maintenance support for checking and fixing generated Rust skill documentation references. Use only when explicitly invoked by /fix-skill-docs. |
-| `create-skill` | Create a new SKILL.md file based on a guided conversation about a task or workflow. |
-| `delegate` | Передача задачи сабагенту с сохранением контекста: основной агент держит только сжатое резюме. |
-| `evaluation` | This skill should be used when building agent evaluation systems: deterministic checks, regression suites, multi-dimensional rubrics, quality gates, production monitoring, baseline comparison, and outcome measurement for agent pipelines. |
-| `explore-docs` | Параллельное чтение и суммаризация всей markdown-документации проекта без загрузки главного контекста. |
-| `filesystem-context` | This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt. |
-| `harness-engineering` | This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries. |
-| `hosted-agents` | This skill should be used when designing hosted or background agent infrastructure: sandboxed execution, remote coding environments, warm pools, session persistence, multiplayer collaboration, self-spawning agents, or Modal-style sandboxes. |
-| `latent-briefing` | This skill should be used when the user asks to \"share memory between agents\", \"KV cache compaction for multi-agent\", \"orchestrator worker context\", \"latent briefing\", \"reduce worker tokens\", \"cross-agent memory without summarization\", or discusses Attention Matching compaction, recur... |
-| `long-horizon-prompting` | This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-running autonomous agent or a parallel multi-agent orchestration attacking a hard problem: pseudo-formal task briefs that define terms and an exact success predicate linguistically, enumerate non-countin... |
-| `mcp-builder` | Build production-grade MCP (Model Context Protocol) servers that connect AI agents to external APIs, databases, and services. Use when the user wants to build an MCP server, integrate an external API with Claude or any AI agent, create custom tools for an AI agent, expose a service via MCP, or as... |
-| `memory-systems` | This skill should be used for persistent semantic memory in agent systems: cross-session knowledge retention, entity tracking, temporal validity, graph or vector retrieval, memory consolidation, and memory benchmark selection. Route file-backed scratchpads to filesystem-context, handoff summaries... |
-| `meta-cognition-parallel` | EXPERIMENTAL: Three-layer parallel meta-cognition analysis. Triggers on: /meta-parallel, 三层分析, parallel analysis, 并行元认知 |
-| `multi-agent-patterns` | This skill should be used when designing multi-agent systems that need context isolation, supervisor or swarm coordination, explicit handoffs, parallel execution, or a decision on whether multiple agents are justified. |
-| `project-development` | This skill should be used for project-level decisions about LLM-powered systems: whether an LLM is the right primitive for the task at hand, the shape of a multi-stage batch or agent pipeline, token and cost estimation, choosing between single-agent and multi-agent at the project level, structure... |
-| `prompt-engineer` | Design, iterate, test, and version prompts for LLMs — system prompts, few-shot examples, chain-of-thought, structured output, and agentic tool-use prompts. Use when the user asks to write a prompt, improve an existing prompt, design a system prompt, add few-shot examples, control LLM output forma... |
-| `research-agent` | Deep research and R&D investigation skill. Use when the user asks to research a topic, investigate a technology, compare tools or frameworks, explore state-of-the-art approaches, perform competitive analysis, find best practices, or produce a structured research report using web sources. |
-| `self-improvement` | Captures learnings, errors, corrections, and feature requests to enable continuous improvement. Use when: (1) User corrects Claude ('No, that's wrong...', 'Actually...'), (2) User requests a capability that doesn't exist, (3) Claude realizes its knowledge is outdated or incorrect, (4) A better ap... |
-| `self-improvement-loops` | This skill should be used when the harness, scaffold, workflow, or optimizer itself is the optimization target: recursive self-improvement (RSI) loops, meta-harnesses, self-improving harnesses that mine their own failures and propose bounded edits, evolutionary or population-based search over age... |
-| `self-improving` | Self-reflection + Self-criticism + Self-learning + Self-organizing memory. Agent evaluates its own work, catches mistakes, and improves permanently. Use when (1) a command, tool, API, or operation fails; (2) the user corrects you or rejects your work; (3) you realize your knowledge is outdated or... |
-| `tool-design` | This skill should be used for the tool-interface layer of an agent system specifically: writing tool descriptions agents can route on, designing tool schemas and response formats, naming conventions, actionable error recovery messages, MCP server design, tool-set consolidation, and deciding when ... |
+| `advanced-evaluation` | Продвинутая оценка LLM: LLM-как-судья, прямое оценивание, попарное сравнение, калибровка рубрик, снижение смещений оценщика, оценка уверенности и автоматическая проверка качества. |
+| `agent-memory` | Управление памятью сессий, браузерное QA-тестирование и координация нескольких агентов: сохранение знаний между сессиями, просмотр и чистка устаревших, браузерные тесты на реальном Chromium и настройка авторизованных браузерных сессий. |
+| `agent-ui-design` | Паттерны проектирования чат-интерфейсов, агентского UX, стримингового UI и визуализации инструментов: архитектура сообщений, типы сообщений, рендер стриминга, карточки выполнения инструментов и песочница на основе SDK 21st.dev Agents. |
+| `ai-engineer` | Экспертные рекомендации по AI/LLM-инженерии: RAG, OpenAI, Azure OpenAI, промпт-инжиниринг, AI-агенты, MCP, векторные базы данных и пайплайны оценки. |
+| `bdi-mental-states` | Моделирование ментальных состояний агента концепциями BDI: убеждения, желания, намерения, трансформации RDF-в-убеждения, рациональные трассы агента, когнитивные агенты, BDI-онтологии и нейросимволическая интеграция ИИ. |
+| `context-compression` | Сжатие контекста в долгих сессиях агентов: структурированное резюмирование, компактизация, оптимизация токенов на задачу и надёжные саммари передачи с решениями, файлами, рисками и следующими шагами. |
+| `context-degradation` | Диагностика и смягчение деградации контекста: сбои lost-in-middle, отравление контекста, конфликты и путаница контекста, проблемы паттернов внимания и падение производительности агента из-за накопленного или противоречивого контекста. |
+| `context-fundamentals` | Базовые концепции контекст-инжиниринга: что такое контекст, анатомия окна контекста, механика внимания, U-образная кривая внимания, почему качество важнее количества. Использовать для объяснения, онбординга и фонового чтения. |
+| `context-optimization` | Повышение эффективности контекста: бюджетирование контекста, маскирование наблюдений, стратегия префиксов или KV-кэша, партиционирование, снижение стоимости токенов, ограничение выборки и расширение эффективной ёмкости без потери качества. |
+| `core-actionbook` | Внутренний вспомогательный скил для MCP-селекторов actionbook в исследовательских воркфлоу документации Rust. Использовать только когда другой rust-skills воркфлоу явно запрашивает селекторы на базе actionbook. |
+| `core-agent-browser` | Внутренний вспомогательный скил для CLI-воркфлоу agent-browser в rust-learner, docs-researcher и crate-researcher. Использовать только когда явно требуется автоматизация браузера. |
+| `core-dynamic-skills` | Внутренняя поддержка команд для динамического управления скилами Rust-крейтов. Использовать только по явному вызову /sync-crate-skills, /clean-crate-skills или /update-crate-skill. |
+| `core-fix-skill-docs` | Внутреннее обслуживание проверки и исправления ссылок в документации сгенерированных Rust-скилов. Использовать только по явному вызову /fix-skill-docs. |
+| `create-skill` | Создание нового файла SKILL.md на основе управляемого диалога о задаче или воркфлоу. |
+| `delegate` | Делегирование задачи субагенту с сохранением контекста: основной агент получает сжатое резюме, а не детали. Использовать, когда задача требует чтения трёх и более файлов или правок во многих местах. |
+| `evaluation` | Создание систем оценки агентов: детерминированные проверки, регрессионные наборы, многомерные рубрики, гейты качества, мониторинг продакшна, сравнение с базовой линией и измерение результатов пайплайнов агентов. |
+| `explore-docs` | Параллельное чтение и краткое резюмирование всей markdown-документации проекта субагентами. Использовать, когда нужно быстро получить обзор проекта, сориентироваться в большой массе документов или решить, какие из них читать для конкретной задачи. |
+| `filesystem-context` | Файловый контекст для работы агента: долговечные черновики, выгрузка вывода инструментов, открытия по требованию, файлы передачи между агентами, файловая память и политики очистки. |
+| `harness-engineering` | Проектирование обвязок автономных агентов: исследовательские циклы, каркасы оценки, зафиксированные и редактируемые поверхности, долговечные логи, гейты новизны, обрезка, откат, подготовка PR и границы одобрения человеком. |
+| `hosted-agents` | Проектирование хостинг-инфраструктуры для фоновых агентов: песочницы, удалённые среды кодинга, тёплые пулы, персистентность сессий, мультиплеерная коллаборация, само-спавнящиеся агенты и песочницы в стиле Modal. |
+| `latent-briefing` | Обмен памятью между агентами без резюмирования: KV-cache компактификация, латентные брифы, снижение токенов воркеров, кросс-агентная память, Attention Matching и комппакция рекурсивных языковых моделей. |
+| `long-horizon-prompting` | Написание, улучшение и оценка запускного промпта долгоживущего автономного агента или параллельной мультиагентной оркестрации: формальные брифы задач, точные предикаты успеха, правила персистентности, портфель подходов и аудит. |
+| `mcp-builder` | Создание продакшн-серверов MCP, подключающих ИИ-агентов к внешним API, базам данных и сервисам: интеграция API с Claude, кастомные инструменты агента и стандарт MCP. |
+| `memory-systems` | Персистентная семантическая память в агентных системах: удержание знаний между сессиями, отслеживание сущностей, временная валидность, граф/векторный поиск, консолидация памяти и выбор бенчмарков памяти. |
+| `meta-cognition-parallel` | ЭКСПЕРИМЕНТАЛЬНО: трёхуровневый параллельный метакогнитивный анализ. Триггеры: /meta-parallel, параллельный анализ. |
+| `multi-agent-patterns` | Проектирование мультиагентных систем с изоляцией контекста, координацией супервизора/роя, явными передачами, параллельным исполнением или решением, оправданы ли несколько агентов. |
+| `project-development` | Решения уровня проекта для систем на LLM: является ли LLM правильным примитивом, форма многоэтапного пайплайна агента, оценка токенов и стоимости, выбор одного агента vs нескольких и дизайн структурированного вывода. |
+| `prompt-engineer` | Дизайн, итерация, тестирование и версионирование промптов для LLM: системные промпты, few-shot примеры, chain-of-thought, структурированный вывод и промпты для tool use. |
+| `research-agent` | Глубокое исследование и R&D: изучение темы, технологии, сравнение инструментов и фреймворков, передовые подходы, конкурентный анализ, лучшие практики и структурированный исследовательский отчёт по веб-источникам. |
+| `self-improvement` | Фиксация уроков, ошибок, исправлений и запросов фич для постоянного улучшения: когда пользователь исправляет агента, просит отсутствующую возможность, агент понимает, что знания устарели, или найден лучший подход для повторяющейся задачи. |
+| `self-improvement-loops` | Когда цель оптимизации сам обвязка/каркас/воркфлоу/оптимизатор: рекурсивное самосовершенствование, мета-обвязки, эволюционный поиск каркасов агентов, гейты приёмки для самомодифицирующихся систем и эволюция агентного контекста. |
+| `self-improving` | Саморефлексия, самокритика, самообучение и самоорганизующаяся память. Агент оценивает свою работу, ловит ошибки и улучшается навсегда. Использовать при сбое команды/инструмента, исправлении пользователем, устаревших знаниях, найденном лучшем подходе или установке скила. |
+| `tool-design` | Слой интерфейса инструментов агентной системы: описания инструментов для маршрутизации агентов, схемы и форматы ответов, конвенции именования, сообщения об ошибках с восстановлением, дизайн MCP-серверов и консолидация набора инструментов. |
 
 ### Rust
 
 | Скил | Назначение |
 |------|------------|
-| `backend-rust` | Rust gRPC backend patterns, folder structure, module anatomy, and infrastructure wiring for the Anachak multi-tenant SaaS platform. |
-| `coding-guidelines` | Use when asking about Rust code style or best practices. Keywords: naming, formatting, comment, clippy, rustfmt, lint, code style, best practice, P.NAM, G.FMT, code review, naming convention, variable naming, function naming, type naming, 命名规范, 代码风格, 格式化, 最佳实践, 代码审查, 怎么命名 |
-| `domain-cli` | Use when building CLI tools. Keywords: CLI, command line, terminal, clap, structopt, argument parsing, subcommand, interactive, TUI, ratatui, crossterm, indicatif, progress bar, colored output, shell completion, config file, environment variable, 命令行, 终端应用, 参数解析 |
-| `domain-cloud-native` | Use when building cloud-native apps. Keywords: kubernetes, k8s, docker, container, grpc, tonic, microservice, service mesh, observability, tracing, metrics, health check, cloud, deployment, 云原生, 微服务, 容器 |
-| `domain-embedded` | Use when developing embedded/no_std Rust. Keywords: embedded, no_std, microcontroller, MCU, ARM, RISC-V, bare metal, firmware, HAL, PAC, RTIC, embassy, interrupt, DMA, peripheral, GPIO, SPI, I2C, UART, embedded-hal, cortex-m, esp32, stm32, nrf, 嵌入式, 单片机, 固件, 裸机 |
-| `domain-fintech` | Use when building fintech apps. Keywords: fintech, trading, decimal, currency, financial, money, transaction, ledger, payment, exchange rate, precision, rounding, accounting, 金融, 交易系统, 货币, 支付 |
-| `domain-iot` | Use when building IoT apps. Keywords: IoT, Internet of Things, sensor, MQTT, device, edge computing, telemetry, actuator, smart home, gateway, protocol, 物联网, 传感器, 边缘计算, 智能家居 |
-| `domain-ml` | Use when building ML/AI apps in Rust. Keywords: machine learning, ML, AI, tensor, model, inference, neural network, deep learning, training, prediction, ndarray, tch-rs, burn, candle, 机器学习, 人工智能, 模型推理 |
-| `domain-web` | Use when building web services. Keywords: web server, HTTP, REST API, GraphQL, WebSocket, axum, actix, warp, rocket, tower, hyper, reqwest, middleware, router, handler, extractor, state management, authentication, authorization, JWT, session, cookie, CORS, rate limiting, web 开发, HTTP 服务, API 设计, ... |
-| `m01-ownership` | CRITICAL: Use for ownership/borrow/lifetime issues. Triggers: E0382, E0597, E0506, E0507, E0515, E0716, E0106, value moved, borrowed value does not live long enough, cannot move out of, use of moved value, ownership, borrow, lifetime, 'a, 'static, move, clone, Copy, 所有权, 借用, 生命周期 |
-| `m02-resource` | CRITICAL: Use for smart pointers and resource management. Triggers: Box, Rc, Arc, Weak, RefCell, Cell, smart pointer, heap allocation, reference counting, RAII, Drop, should I use Box or Rc, when to use Arc vs Rc, 智能指针, 引用计数, 堆分配 |
-| `m03-mutability` | CRITICAL: Use for mutability issues. Triggers: E0596, E0499, E0502, cannot borrow as mutable, already borrowed as immutable, mut, &mut, interior mutability, Cell, RefCell, Mutex, RwLock, 可变性, 内部可变性, 借用冲突 |
-| `m04-zero-cost` | CRITICAL: Use for generics, traits, zero-cost abstraction. Triggers: E0277, E0308, E0599, generic, trait, impl, dyn, where, monomorphization, static dispatch, dynamic dispatch, impl Trait, trait bound not satisfied, 泛型, 特征, 零成本抽象, 单态化 |
-| `m05-type-driven` | CRITICAL: Use for type-driven design. Triggers: type state, PhantomData, newtype, marker trait, builder pattern, make invalid states unrepresentable, compile-time validation, sealed trait, ZST, 类型状态, 新类型模式, 类型驱动设计 |
-| `m06-error-handling` | CRITICAL: Use for error handling. Triggers: Result, Option, Error, ?, unwrap, expect, panic, anyhow, thiserror, when to panic vs return Result, custom error, error propagation, 错误处理, Result 用法, 什么时候用 panic |
-| `m07-concurrency` | CRITICAL: Use for concurrency/async. Triggers: E0277 Send Sync, cannot be sent between threads, thread, spawn, channel, mpsc, Mutex, RwLock, Atomic, async, await, Future, tokio, deadlock, race condition, 并发, 线程, 异步, 死锁 |
-| `m09-domain` | CRITICAL: Use for domain modeling. Triggers: domain model, DDD, domain-driven design, entity, value object, aggregate, repository pattern, business rules, validation, invariant, 领域模型, 领域驱动设计, 业务规则 |
-| `m10-performance` | CRITICAL: Use for performance optimization. Triggers: performance, optimization, benchmark, profiling, flamegraph, criterion, slow, fast, allocation, cache, SIMD, make it faster, 性能优化, 基准测试 |
-| `m11-ecosystem` | Use when integrating crates or ecosystem questions. Keywords: E0425, E0433, E0603, crate, cargo, dependency, feature flag, workspace, which crate to use, using external C libraries, creating Python extensions, PyO3, wasm, WebAssembly, bindgen, cbindgen, napi-rs, cannot find, private, crate recomm... |
-| `m12-lifecycle` | Use when designing resource lifecycles. Keywords: RAII, Drop, resource lifecycle, connection pool, lazy initialization, connection pool design, resource cleanup patterns, cleanup, scope, OnceCell, Lazy, once_cell, OnceLock, transaction, session management, when is Drop called, cleanup on error, g... |
-| `m13-domain-error` | Use when designing domain error handling. Keywords: domain error, error categorization, recovery strategy, retry, fallback, domain error hierarchy, user-facing vs internal errors, error code design, circuit breaker, graceful degradation, resilience, error context, backoff, retry with backoff, err... |
-| `m14-mental-model` | Use when learning Rust concepts. Keywords: mental model, how to think about ownership, understanding borrow checker, visualizing memory layout, analogy, misconception, explaining ownership, why does Rust, help me understand, confused about, learning Rust, explain like I'm, ELI5, intuition for, co... |
-| `m15-anti-pattern` | Use when reviewing code for anti-patterns. Keywords: anti-pattern, common mistake, pitfall, code smell, bad practice, code review, is this an anti-pattern, better way to do this, common mistake to avoid, why is this bad, idiomatic way, beginner mistake, fighting borrow checker, clone everywhere, ... |
-| `rust-call-graph` | Visualize Rust function call graphs using LSP. Triggers on: /call-graph, call hierarchy, who calls, what calls, 调用图, 调用关系, 谁调用了, 调用了谁 |
-| `rust-code-navigator` | Navigate Rust code using LSP. Triggers on: /navigate, go to definition, find references, where is defined, 跳转定义, 查找引用, 定义在哪, 谁用了这个 |
-| `rust-daily` | Новости и ежедневные/недельные дайджесты по экосистеме Rust. |
-| `rust-deps-visualizer` | Visualize Rust project dependencies as ASCII art. Triggers on: /deps-viz, dependency graph, show dependencies, visualize deps, 依赖图, 依赖可视化, 显示依赖 |
-| `rust-learner` | Use when asking about Rust versions or crate info. Keywords: latest version, what's new, changelog, Rust 1.x, Rust release, stable, nightly, crate info, crates.io, lib.rs, docs.rs, API documentation, crate features, dependencies, which crate, what version, Rust edition, edition 2021, edition 2024... |
-| `rust-refactor-helper` | Safe Rust refactoring with LSP analysis. Triggers on: /refactor, rename symbol, move function, extract, 重构, 重命名, 提取函数, 安全重构 |
-| `rust-router` | Маршрутизатор для всех вопросов по Rust: ошибки компиляции, проектирование, сравнения. |
-| `rust-skill-creator` | Use when creating skills for Rust crates or std library documentation. Keywords: create rust skill, create crate skill, create std skill, 创建 rust skill, 创建 crate skill, 创建 std skill, 动态 rust skill, 动态 crate skill, skill for tokio, skill for serde, skill for axum, generate rust skill, rust 技能, cra... |
-| `rust-symbol-analyzer` | Analyze Rust project structure using LSP symbols. Triggers on: /symbols, project structure, list structs, list traits, list functions, 符号分析, 项目结构, 列出所有, 有哪些struct |
-| `rust-trait-explorer` | Explore Rust trait implementations using LSP. Triggers on: /trait-impl, find implementations, who implements, trait 实现, 谁实现了, 实现了哪些trait |
-| `unsafe-checker` | CRITICAL: Use for unsafe Rust code review and FFI. Triggers on: unsafe, raw pointer, FFI, extern, transmute, *mut, *const, union, #[repr(C)], libc, std::ffi, MaybeUninit, NonNull, SAFETY comment, soundness, undefined behavior, UB, safe wrapper, memory layout, bindgen, cbindgen, CString, CStr, 安全抽... |
+| `backend-rust` | Паттерны Rust gRPC-бэкенда, структура папок, анатомия модулей и подключение инфраструктуры для многотенантной SaaS-платформы Anachak. |
+| `coding-guidelines` | Вопросы о стиле и лучших практиках Rust: именование, форматирование, комментарии, clippy, rustfmt, lint, код-стиль, код-ревью и конвенции именования. |
+| `domain-cli` | Создание CLI-инструментов на Rust: clap, structopt, разбор аргументов, подкоманды, интерактивность, TUI (ratatui, crossterm), прогресс-бары, цветной вывод, автодополнение и конфиги. |
+| `domain-cloud-native` | Создание облачных приложений: kubernetes, docker, контейнеры, gRPC/tonic, микросервисы, service mesh, наблюдаемость, трейсинг, метрики, health check и деплой. |
+| `domain-embedded` | Разработка встроенного/no_std Rust: микроконтроллеры, bare metal, прошивки, HAL/PAC, RTIC, embassy, прерывания, DMA, периферия (GPIO, SPI, I2C, UART) и платформы вроде cortex-m, esp32, stm32, nrf. |
+| `domain-fintech` | Финтех-приложения на Rust: торговля, десятичные/валютные вычисления, деньги, транзакции, ledger, платежи, курсы валют, точность, округление, учёт. |
+| `domain-iot` | IoT-приложения на Rust: датчики, MQTT, устройства, edge computing, телеметрия, актуаторы, умный дом, шлюзы и протоколы. |
+| `domain-ml` | ML/AI-приложения на Rust: машинное обучение, тензоры, модели, инференс, нейросети, обучение и предсказание через ndarray, tch-rs, burn, candle. |
+| `domain-web` | Веб-сервисы на Rust: HTTP, REST, GraphQL, WebSocket, axum, actix, warp, rocket, tower, hyper, reqwest, middleware, маршрутизация, состояние, аутентификация, JWT, сессии, куки, CORS и rate limiting. |
+| `m01-ownership` | КРИТИЧНО: использовать для проблем владения, заимствования и времени жизни. Триггеры: E0382, E0597, E0506, E0507, E0515, E0716, E0106, value moved, borrowed value does not live long enough, cannot move out of, use of moved value, ownership, borrow, lifetime, move, clone, Copy. |
+| `m02-resource` | КРИТИЧНО: использовать для умных указателей и управления ресурсами. Триггеры: Box, Rc, Arc, Weak, RefCell, Cell, smart pointer, heap allocation, reference counting, RAII, Drop, when to use Arc vs Rc. |
+| `m03-mutability` | КРИТИЧНО: использовать для проблем изменяемости. Триггеры: E0596, E0499, E0502, cannot borrow as mutable, already borrowed as immutable, mut, interior mutability, Cell, RefCell, Mutex, RwLock. |
+| `m04-zero-cost` | КРИТИЧНО: использовать для дженериков, трейтов и нулево-стоимостных абстракций. Триггеры: E0277, E0308, E0599, generic, trait, impl, dyn, monomorphization, static/dynamic dispatch, impl Trait, trait bound not satisfied. |
+| `m05-type-driven` | КРИТИЧНО: использовать для тип-ориентированного проектирования. Триггеры: type state, PhantomData, newtype, marker trait, builder pattern, make invalid states unrepresentable, compile-time validation, sealed trait, ZST. |
+| `m06-error-handling` | КРИТИЧНО: использовать для обработки ошибок. Триггеры: Result, Option, Error, unwrap, expect, panic, anyhow, thiserror, когда паниковать vs возвращать Result, кастомные ошибки, проброс ошибок. |
+| `m07-concurrency` | КРИТИЧНО: использовать для конкурентности/async. Триггеры: E0277 Send Sync, cannot be sent between threads, thread, spawn, channel, mpsc, Mutex, RwLock, Atomic, async, await, Future, tokio, deadlock, race condition. |
+| `m09-domain` | КРИТИЧНО: использовать для доменного моделирования. Триггеры: domain model, DDD, entity, value object, aggregate, repository pattern, business rules, validation, invariant. |
+| `m10-performance` | КРИТИЧНО: использовать для оптимизации производительности. Триггеры: performance, optimization, benchmark, profiling, flamegraph, criterion, slow, fast, allocation, cache, SIMD. |
+| `m11-ecosystem` | Интеграция крейтов и вопросы экосистемы: E0425, E0433, E0603, crate, cargo, зависимости, feature flags, workspace, какой крейт выбрать, PyO3, wasm, bindgen, Cargo.toml. |
+| `m12-lifecycle` | Проектирование жизненного цикла ресурсов: RAII, Drop, пулы соединений, ленивая инициализация, очистка ресурсов, OnceCell/Lazy/OnceLock, транзакции и guard-паттерны. |
+| `m13-domain-error` | Проектирование доменной обработки ошибок: категоризация ошибок, стратегия восстановления, ретраи, фолбэки, иерархия доменных ошибок, circuit breaker, graceful degradation, backoff. |
+| `m14-mental-model` | Изучение концепций Rust: ментальные модели, как думать об ownership, понимание borrow checker, визуализация памяти, аналогии и объяснения почему. |
+| `m15-anti-pattern` | Ревью кода на антипаттерны: распространённые ошибки, ловушки, code smell, худшие практики, борьба с borrow checker, clone везде, unwrap в продакшне. |
+| `rust-call-graph` | Визуализация графов вызовов функций Rust через LSP. Триггеры: /call-graph, иерархия вызовов, кто вызывает, что вызывает. |
+| `rust-code-navigator` | Навигация по коду Rust через LSP: переход к определению, поиск ссылок, где определён символ. |
+| `rust-daily` | Новости и ежедневные, еженедельные и ежемесячные дайджесты по экосистеме Rust. |
+| `rust-deps-visualizer` | Визуализация зависимостей Rust-проекта как ASCII-арта. Триггеры: /deps-viz, граф зависимостей, показать зависимости. |
+| `rust-learner` | Вопросы о версиях Rust и информации о крейтах: последние версии, что нового, ченджлоги, релизы, stable/nightly, crates.io, lib.rs, docs.rs, документация API, фичи крейтов, зависимости, какой крейт, edition 2021/2024, cargo add/update. |
+| `rust-refactor-helper` | Безопасный рефакторинг Rust с анализом LSP: переименование символов, перемещение функций, извлечение кода. |
+| `rust-router` | Маршрутизатор для ВСЕХ вопросов о Rust, включая ошибки, проектирование и написание кода. Высший приоритет для сравнений (tokio vs async-std и т. п.), вопросов почему, анализа ошибок компиляции, borrow checker, асинхронности и обработки ошибок. Направляет к профильным скилам. |
+| `rust-skill-creator` | Создание скилов для крейтов Rust или документации std: скил для tokio, serde, axum, генерация rust-скилов из документации. |
+| `rust-symbol-analyzer` | Анализ структуры Rust-проекта через LSP-символы: /symbols, структура проекта, список struct, трейтов и функций. |
+| `rust-trait-explorer` | Изучение реализаций трейтов Rust через LSP: поиск реализаций, кто реализует, какие трейты реализованы. |
+| `unsafe-checker` | КРИТИЧНО: ревью unsafe-кода Rust и FFI. Триггеры: unsafe, raw pointer, FFI, extern, transmute, union, MaybeUninit, NonNull, SAFETY-комментарии, soundness, undefined behavior, безопасные обёртки, memory layout, bindgen, cbindgen, CString, CStr. |
 
 ### Frontend и UI-дизайн
 
 | Скил | Назначение |
 |------|------------|
-| `a11y` | Systematically audit and remediate accessibility issues in UI, focusing on keyboard navigation, screen reader support, color contrast, semantic HTML, ARIA usage, and motion sensitivity. Use when the user wants to improve accessibility, make a component accessible, fix WCAG violations, add keyboar... |
-| `accessibility` | WCAG conformance, BFSG compliance, semantic HTML, ARIA, keyboard navigation, contrast, forms, and assistive technologies. Defines binding rules for accessible web interfaces per WCAG 2.1 AA. |
-| `accessibility-audit` | Audit React/Next.js UIs for WCAG 2.2 AA - contrast, ARIA, keyboard, forms, alt text |
-| `accessible-components` | Use when building or reviewing interactive UI that must meet WCAG 2.2 AA — focus management, ARIA roles and states, keyboard navigation, labels, and visible focus. Covers the accessibility mistakes agents make most. |
-| `adapt` | Adapt designs for narrow, medium, wide, embedded, or print web contexts without losing usability, hierarchy, or target sizing. Use when the user mentions responsive design, breakpoints, narrow layouts, viewport changes, touch-capable browsers, or cross-context adaptation. |
-| `add-ui` | Generate 5 distinct, production-grade UI variations for a requested new or existing section, component, page, flow, or shell, then help the user preview and apply one. Use when the user asks to add or redesign UI like a hero, pricing, navbar, auth flow, dashboard shell, ecommerce surface, or data... |
-| `animate` | Improve or implement purposeful motion systems, micro-interactions, gestures, and transition behavior for production-grade UI. Use when the user mentions animation, motion, transitions, micro-interactions, hover states, drawers, toasts, gestures, or making the UI feel more alive. |
-| `arrange` | Improve layout composition, spacing systems, grouping, and visual rhythm. Use when the user mentions weak layout structure, arbitrary spacing, weak grouping, crowded composition, or layout monotony rather than priority/emphasis problems. |
-| `audit` | Run technical quality checks across accessibility, performance, theming, responsive design, and anti-patterns. Generates a scored report with P0-P3 severity ratings and actionable plan. Use when the user wants measurable accessibility, performance, responsive, theming, or anti-pattern findings—no... |
-| `bolder` | Increase visual impact, contrast, personality, and compositional confidence when a design feels bland, generic, or too safe. Use when the design needs more energy, confidence, or memorability—not when the real problem is clutter, over-intensity, or micro-detail polish. |
-| `clarify` | Improve UX writing, marketing copy, labels, microcopy, instructions, and error messages so interfaces and product messaging are easier to understand and act on. Use when the user mentions confusing copy, unclear labels, bad error text, weak CTAs, hard-to-follow instructions, or wanting better UX ... |
-| `colorize` | Build or refine UI color systems, warmth, semantic color, and color-based hierarchy in designs that are too gray, monochromatic, or missing color meaning. Use when the user mentions dull colors, gray UI, missing warmth, weak semantic color, or a need for stronger color hierarchy. |
-| `color-theory` | Color models, palettes, contrast, color psychology, color harmonies, and dark mode for web projects. Defines the 60-30-10 rule, semantic color coding, design tokens, and WCAG contrast requirements. |
-| `competitor-experience-audit` | Audit the brand, UX, and site design of the leading sites in a vertical as a set of observable cross-site patterns, producing the experience bar a new build must meet or beat. Use this skill whenever the user wants to assess the competitive design field, capture vertical conventions, identify the... |
-| `critique` | Evaluate an interface from a UX perspective, assessing hierarchy, information architecture, emotional resonance, cognitive load, and overall quality with quantitative scoring and actionable feedback. Use when the user wants an overall design or UX review—not when the main need is measurable acces... |
-| `dashboard-layout` | Use when building a dashboard or overview page — stat/KPI cards, chart placement, responsive grids, and a scannable hierarchy. Covers metric cards with deltas, where charts go, and loading/empty states for data. |
-| `delight` | Add moments of joy, personality, and surprise through success states, empty states, loading moments, hover details, and celebratory polish once the fundamentals already work. Use when the user wants delight, charm, personality, or memorable micro-interactions—not when the main need is baseline cl... |
-| `depth` | Add or refine depth through elevation systems, raised and inset surfaces, layered overlap, and meaningful shadow behavior so interfaces feel structured instead of flat. Use when the user mentions depth, elevation, shadows, layering, flat cards, pressed states, drag feedback, or inset controls. |
-| `design-explorer` | Visual design exploration and design system creation skill. Use when the user wants to explore multiple design directions, generate design variants, build a design system from scratch, convert a mockup to production HTML, compare design options, or needs a design partner to challenge aesthetic ch... |
-| `design-process` | Briefing, concept development, wireframing, prototyping, visual design, review, and handoff -- the structured path from requirements to finished design. |
-| `design-standards` | Apply production-grade design standards when building or reviewing pages, components, or UI. Use this skill whenever the user asks to build a page, design a component, lay out a section, review the UI, fix the layout, or check design quality. Triggers on build a page, create a component, design a... |
-| `design-system` | Build or audit a design system including component library, design tokens, naming conventions, contribution model, and documentation. Use this skill whenever the user wants to build a design system, audit an existing system, define design tokens at the system level, structure a component library,... |
-| `design-tokens-theming` | Use when setting up a design system — color, typography, and spacing scales as CSS variables, the shadcn/ui theme, and dark mode. Covers semantic tokens, Tailwind wiring, and consistent theming across components. |
-| `design-trends` | Current award-winning design patterns and emerging techniques in web design (Q1/Q2 2026). Covers motion, typography, color, layout innovations, and interaction patterns derived from Awwwards, CSSDA, Godly, and SiteInspire analysis. Structured for periodic updates. |
-| `distill` | Simplify cluttered UI by removing unnecessary elements, choices, features, and structural complexity. Use when the problem is too many controls, options, features, or competing elements—not when the structure is sound and the real issue is only visual intensity or lack of personality. |
-| `effective-ui-design` | Профессиональные гайдлайны UI: OKLCH-палитры, 8pt сетка, типографика clamp(), доступность WCAG. |
-| `empty-and-loading-states` | Use when handling the non-happy UI states — skeleton loaders, empty states with a clear CTA, error states with retry, and optimistic updates. Covers the states agents forget that make an app feel broken or polished. |
-| `empty-state` | Design focused empty states for zero-data, no-results, permission, and error situations with clear value framing, strong CTAs, and less dead chrome. Use when the user mentions blank pages, zero-data screens, no results, permission states, or dead controls—not broader onboarding strategy. |
-| `extract` | Extract reusable components, product patterns, and design tokens into a clearer design system with shared APIs, documented defaults, and better reuse. Use when the user wants to refactor repeated UI, consolidate buttons/cards/forms/sections, build a component library, or turn one-off values into ... |
-| `forms` | Design, structure, or improve form interfaces for clarity, completion rates, and user confidence. Use when the user asks to build a form, redesign a form flow, improve form conversion, add multi-step forms, fix form UX, or structure field layouts and validation. |
-| `form-strategy` | Design forms that convert, validate well, resist spam, and integrate cleanly with downstream systems. Use this skill when designing or auditing any form (contact, signup, checkout, multi-step, embedded), planning validation logic, fighting spam, choosing form tooling, or improving form conversion... |
-| `frontend-component-build` | Build production-ready frontend components with accessible markup, sensible props, defined states, and tested behavior. Use this skill whenever the user wants to build a component from scratch, refactor an existing one, design a component API, or implement a UI element with proper states and acce... |
-| `frontend-design` | Create distinctive, production-grade frontend interfaces with strong hierarchy, thoughtful systems, and polished implementation that avoid generic AI aesthetics. Use when the user wants to build or redesign web pages, flows, components, or full app surfaces, or when another better-web-ui skill ne... |
-| `harden` | Improve interface resilience through better error handling, i18n support, text overflow handling, and edge case management, making interfaces robust and production-ready. Use when the user asks to harden, make production-ready, handle edge cases, add error states, or fix overflow and i18n issues. |
-| `hierarchy` | Clarify priority and emphasis by fixing unclear primary actions, competing visual weight, loud section titles, and weak label/value treatment. Use when the user mentions hierarchy, prioritization, too much competition, grayscale confusion, loud headings, or unclear primary actions. |
-| `imagery` | Improve how interfaces use photos, screenshots, icons, illustrations, and user-uploaded media so visuals support clarity instead of undermining it. Use when the user mentions images, screenshots, background photos, hero images, icon sizing, user-uploaded media, crops, overlays, or image readability. |
-| `images-media` | Image strategy, visual concepts, technical optimization, SVG, icons, lazy loading, and the strategic use of images and media in web design. |
-| `information-architecture` | Design the structure of a website or product including sitemap, navigation, URL structure, content types, taxonomy, and labeling. Use this skill whenever the user asks to plan a sitemap, design navigation, structure URLs, define content types, build taxonomies, design site search, or organize con... |
-| `internationalization` | Plan and run a multi-language or multi-region site. Use this skill when adding new locales, choosing URL structure for languages (subfolders vs subdomains vs ccTLDs), implementing hreflang, planning translation workflow, handling currency and date formats, designing for RTL languages, or auditing... |
-| `localize` | Plan, implement, or improve an internationalization and localization strategy for UI content, formatting, and regional adaptation. Use when the user asks to add i18n, localize, translate, support multiple languages, handle regional formats, manage locale switching, or build a multilingual product. |
-| `modals-and-dialogs` | Use when building modals, sheets, drawers, or confirmation flows — choosing Dialog vs Sheet vs Drawer vs AlertDialog, focus trapping, destructive-action confirms, and forms inside overlays without losing data. |
-| `navigation-design` | Menu patterns, breadcrumbs, search functionality, information architecture, and user flow. Navigation as the backbone of every website with accessible implementation. |
-| `navigation-patterns` | Use when building app navigation — sidebar nav with active states, a command palette (cmdk), tabs, and breadcrumbs. Covers accessible markup, active-route detection, and keyboard-first navigation. |
-| `normalize` | Audit and realign UI to match design system standards, spacing, tokens, and patterns. Use when the user mentions consistency, design drift, mismatched styles, tokens, or wants to bring a feature back in line with the system. |
-| `notifications-and-toasts` | Use when giving users feedback — toasts (sonner), inline alerts, and a notification center. Covers when to use which, accessible announcements, promise/loading toasts, and not overusing notifications. |
-| `onboard` | Design onboarding and activation flows that help users reach value quickly. Use when the user mentions onboarding, getting started, first-time users, activation, aha moments, or new user flows—not when the work is only the empty-state surface itself. |
-| `onboarding-flows` | Use when building onboarding — multi-step wizards, setup checklists, progressive disclosure, and first-run empty states. Covers step state, progress indication, skip/resume, and getting users to first value fast. |
-| `optimize` | Diagnose and fix UI performance across loading speed, rendering, animations, images, and bundle size. Use when the user mentions slow, laggy, janky, performance, bundle size, load time, or wants a faster, smoother experience. |
-| `polish` | Perform a final quality pass fixing alignment, spacing, consistency, and micro-detail issues before shipping. Use when the work is functionally complete and needs finishing touches—not when the hierarchy, structure, tone, or technical foundation still need major changes. |
-| `quieter` | Reduce visual intensity, saturation, and noise while preserving hierarchy and character. Use when the structure is basically sound but the design feels too loud, bold, garish, aggressive, or overstimulating—not when the real problem is structural clutter, too many features, or not enough personal... |
-| `redesign` | Редизайн кода/модуля по явному запросу пользователя. |
-| `responsive-design` | Mobile-first strategy, breakpoints, fluid layouts, content choreography, and cross-device optimization with CSS Grid, Flexbox, and modern responsive techniques. |
-| `responsive-layout` | Use when building the app shell or any responsive screen — sidebar + topbar layouts, Tailwind breakpoints, container queries, and fluid grids that hold up from mobile to ultrawide. |
-| `search` | Design or improve search experiences, result presentation, and filtering interfaces. Use when the user asks to add search, redesign search results, improve findability, build autocomplete, add filters, or fix zero-results dead ends. |
-| `security-ux` | Design security-conscious interfaces that protect users without frustrating them. Use when the user asks about MFA, password UX, breach notifications, trust indicators, secure forms, account recovery, or making security feel safe rather than scary. |
-| `semantic-html-css` | Semantic HTML, landmarks, focus, and modern CSS - fast accessible UI that pairs with WCAG audits |
-| `settings-pages` | Use when building settings — account, profile, team/members, workspace, and a danger zone. Covers sectioned layouts, sidebar/tab navigation, autosave vs explicit save, and safe destructive actions. |
-| `setup` | Gather and persist project design context such as audience, brand personality, UX goals, and implementation defaults for future better-web-ui work. Use when starting a project, defining UI direction, or establishing reusable design guidance before other better-web-ui skills. |
-| `showcase` | Create standout, technically ambitious interfaces that feel extraordinary through cinematic transitions, advanced motion, heavy rendering, or other high-ambition implementation work. Use when the user wants to wow, impress, go all-out, or push a feature beyond conventional UI polish—not when simp... |
-| `skillcodex-browser-ui` | Full SkillCodex doc browser - skills.sh-style UI, STRICT UI only, design-guidelines |
+| `a11y` | Системный аудит и исправление проблем доступности в UI: клавиатурная навигация, поддержка скринридеров, контраст, семантический HTML, ARIA и чувствительность к движению. Использовать, когда нужно улучшить доступность, сделать компонент доступным, устранить нарушения WCAG или добавить поддержку кл... |
+| `accessibility` | Соответствие WCAG и BFSG: семантический HTML, ARIA, навигация с клавиатуры, контраст, формы и вспомогательные технологии. Определяет обязательные правила доступных веб-интерфейсов по WCAG 2.1 AA. |
+| `accessibility-audit` | Аудит React/Next.js UI на соответствие WCAG 2.2 AA: контраст, ARIA, клавиатура, формы, альтернативный текст. |
+| `accessible-components` | Создание или ревью интерактивного UI по WCAG 2.2 AA: управление фокусом, роли и состояния ARIA, клавиатурная навигация, подписи и видимый фокус. Охватывает самые частые ошибки доступности агентов. |
+| `adapt` | Адаптация дизайнов под узкий, средний, широкий, встроенный и печатный веб-контекст без потери юзабилити, иерархии и размеров целей. Использовать при упоминании адаптивного дизайна, брейкпоинтов, узких макетов, изменений вьюпорта или тач-браузеров. |
+| `add-ui` | Генерация 5 разных продакшн-вариантов UI для запрошенного нового или существующего раздела, компонента, страницы, флоу или оболочки с последующим превью и применением одного из них. Использовать при просьбе добавить или переделать UI: герой, прайсинг, навбар, авторизация, каркас дашборда. |
+| `animate` | Улучшение или реализация осмысленных систем анимации, микроинтеракций, жестов и переходов для продакшн-UI. Использовать при упоминании анимации, motion, переходов, hover-состояний, drawer, тостов или жестов. |
+| `arrange` | Улучшение композиции макета, систем отступов, группировки и визуального ритма. Использовать при слабой структуре макета, произвольных отступах, слабой группировке или монотонности композиции. |
+| `audit` | Техническая проверка качества: доступность, производительность, темизация, адаптивность и антипаттерны. Генерирует оценённый отчёт с уровнями серьёзности P0-P3 и планом действий. Использовать, когда нужны измеримые находки, а не общая UX-критика. |
+| `bolder` | Повышение визуального воздействия, контраста, индивидуальности и уверенности композиции, когда дизайн кажется блеклым, шаблонным или слишком безопасным. Не для случаев захламлённости или проблем микро-полировки. |
+| `clarify` | Улучшение UX-текстов, маркетинговых текстов, подписей, микротекстов, инструкций и сообщений об ошибках, чтобы интерфейсы были понятнее. Использовать при запутанных текстах, слабых CTA и неочевидных инструкциях. |
+| `colorize` | Построение или улучшение цветовых систем UI, теплоты, семантических цветов и цветовой иерархии в слишком серых или монохромных дизайнах. |
+| `color-theory` | Цветовые модели, палитры, контраст, психология цвета, гармонии и тёмный режим для веба. Определяет правило 60-30-10, семантические цвета, дизайн-токены и требования контраста WCAG. |
+| `competitor-experience-audit` | Аудит бренда, UX и дизайна ведущих сайтов вертикали как набора наблюдаемых кросс-сайтовых паттернов, задающих планку опыта для нового продукта. |
+| `critique` | Оценка интерфейса с точки зрения UX: иерархия, информационная архитектура, эмоциональный резонанс, когнитивная нагрузка и общее качество с количественной оценкой и практической обратной связью. Использовать при запросе общего дизайн/UX-ревью. |
+| `dashboard-layout` | Создание дашбордов и обзорных страниц: карточки метрик/KPI, размещение графиков, адаптивные сетки и сканируемая иерархия. Охватывает карточки с дельтами, расположение графиков и состояния загрузки/пустоты. |
+| `delight` | Добавление моментов радости, индивидуальности и сюрприза через состояния успеха, пустоты, загрузки, hover-детали и праздничную полировку, когда основы уже работают. |
+| `depth` | Добавление или улучшение глубины через системы высот, приподнятые и утопленные поверхности, многослойные перекрытия и осмысленные тени, чтобы интерфейсы ощущались структурированными. |
+| `design-explorer` | Исследование визуального дизайна и создание дизайн-систем: несколько направлений, генерация вариантов, дизайн-система с нуля, конвертация макета в продакшн-HTML и сравнение опций. |
+| `design-process` | Бриф, разработка концепций, вайрфреймы, прототипирование, визуальный дизайн, ревью и передача: структурированный путь от требований к готовому дизайну. |
+| `design-standards` | Продакшн-стандарты дизайна при создании страниц, компонентов и UI: контраст, доступность, отступы и визуальная иерархия. |
+| `design-system` | Создание или аудит дизайн-системы: библиотека компонентов, дизайн-токены, конвенции именования, модель вклада и документация. Использовать при несогласованности команд и необходимости системы. |
+| `design-tokens-theming` | Настройка дизайн-системы: шкалы цвета, типографики и отступов как CSS-переменные, тема shadcn/ui и тёмный режим. Охватывает семантические токены, подключение Tailwind и консистентную темизацию. |
+| `design-trends` | Актуальные награждаемые паттерны и новые техники веб-дизайна (Q1/Q2 2026): motion, типографика, цвет, инновации макета и интеракций по анализу Awwwards, CSSDA, Godly и SiteInspire. |
+| `distill` | Упрощение захламлённого UI удалением лишних элементов, опций, фич и структурной сложности. Использовать, когда элементов слишком много, а не когда нужна визуальная интенсивность. |
+| `effective-ui-design` | Профессиональные рекомендации по UI-дизайну: палитры OKLCH, сетка 8pt, типографика clamp(), container queries, валидация форм, тёмная тема, доступность WCAG 2.1 AA и Core Web Vitals. Использовать при написании CSS/HTML или проектировании интерфейсов. |
+| `empty-and-loading-states` | Обработка не-счастливых состояний UI: скелетоны загрузки, пустые состояния с понятным CTA, состояния ошибок с повтором и оптимистичные обновления. |
+| `empty-state` | Продуманные пустые состояния для нулевых данных, отсутствия результатов, отсутствия прав и ошибок: ценностное обрамление, сильные CTA и меньше мёртвого хрома. |
+| `extract` | Выделение переиспользуемых компонентов, продуктовых паттернов и дизайн-токенов в более ясную дизайн-систему с общими API, задокументированными дефолтами и лучшим переиспользованием. |
+| `forms` | Проектирование, структура и улучшение форм для ясности, конверсии и уверенности пользователя: многошаговые формы, UX форм, поля и валидация. |
+| `form-strategy` | Формы, которые конвертируют, валидируются, сопротивляются спаму и интегрируются с нижестоящими системами: дизайн, логика валидации, captcha/honeypot, выбор инструментов и повышение конверсии. |
+| `frontend-component-build` | Создание продакшн-фронтенд-компонентов с доступной разметкой, разумными пропсами, определёнными состояниями и проверенным поведением: кнопки, модалки, инпуты, API компонента. |
+| `frontend-design` | Создание самобытных продакшн-фронтенд-интерфейсов с сильной иерархией, продуманными системами и полировкой, избегая шаблонной AI-эстетики. Использовать при создании страниц, флоу и поверхностей приложения. |
+| `harden` | Повышение устойчивости интерфейса: лучшая обработка ошибок, поддержка i18n, переполнение текста и обработка крайних случаев до продакшн-готовности. |
+| `hierarchy` | Прояснение приоритетов и акцентов: неясные основные действия, конкурирующий визуальный вес, громкие заголовки и слабая обработка меток/значений. |
+| `imagery` | Улучшение использования фото, скриншотов, иконок, иллюстраций и загруженного медиа, чтобы визуал поддерживал ясность, а не мешал: кадры, наложения, читаемость изображений. |
+| `images-media` | Стратегия изображений, визуальные концепции, техническая оптимизация, SVG, иконки, ленивая загрузка и стратегическое использование медиа в веб-дизайне. |
+| `information-architecture` | Структура сайта или продукта: карта сайта, навигация, URL-структура, типы контента, таксономия и подписи. Использовать при планировании карты сайта, проектировании навигации, построении таксономий и организации контента. |
+| `internationalization` | Планирование и ведение мультиязычного/мультирегионального сайта: локали, URL-структура языков, hreflang, воркфлоу перевода, валюты и даты, RTL-языки и аудит застрявшей интернационализации. |
+| `localize` | Планирование, внедрение и улучшение интернационализации и локализации UI: i18n, переводы, региональные форматы, переключение локалей и мультиязычный продукт. |
+| `modals-and-dialogs` | Создание модалок, шитов, драйверов и подтверждений: выбор Dialog vs Sheet vs Drawer vs AlertDialog, управление фокусом, подтверждение деструктивных действий и формы в оверлеях без потери данных. |
+| `navigation-design` | Паттерны меню, хлебные крошки, поиск, информационная архитектура и пользовательские потоки: навигация как хребет каждого сайта с доступной реализацией. |
+| `navigation-patterns` | Навигация приложения: сайдбар с активными состояниями, командная палитра (cmdk), табы и хлебные крошки. Доступная разметка, определение активного маршрута и клавиатурная навигация. |
+| `normalize` | Аудит и приведение UI к стандартам дизайн-системы: отступы, токены и паттерны. Использовать при упоминании консистентности, дрейфа дизайна, расхождения стилей или возврата фичи в систему. |
+| `notifications-and-toasts` | Обратная связь пользователю: тосты (sonner), инлайн-алерты и центр уведомлений. Когда что использовать, доступные анонсы, тосты промисов/загрузки и без перебора уведомлений. |
+| `onboard` | Проектирование онбординга и активационных флоу, которые быстро ведут пользователя к ценности: первые шаги, активация, момент aha. |
+| `onboarding-flows` | Онбординг: многошаговые визарды, чек-листы настройки, прогрессивное раскрытие и пустые состояния первого запуска. Состояния шагов, индикация прогресса, скип/возобновление и быстрый путь к первой ценности. |
+| `optimize` | Диагностика и исправление производительности UI: скорость загрузки, рендеринг, анимации, изображения и размер бандла. Использовать при упоминании медленной, лагающей работы или желании ускорить интерфейс. |
+| `polish` | Финальный проход качества: выравнивание, отступы, консистентность и микродетали перед релизом. Использовать, когда работа функционально готова и нужны финальные штрихи. |
+| `quieter` | Снижение визуальной интенсивности, насыщенности и шума с сохранением иерархии и характера. Использовать, когда структура в порядке, но дизайн слишком громкий, дерзкий или агрессивный. |
+| `redesign` | Редизайн кода по явному запросу пользователя (например, переделай этот код/модуль или через команду $redesign). Не применять для обычного ревью, рефакторинга или мелких правок. |
+| `responsive-design` | Mobile-first стратегия, брейкпоинты, флюидные макеты, хореография контента и кросс-девайсная оптимизация с CSS Grid, Flexbox и современными адаптивными техниками. |
+| `responsive-layout` | Оболочка приложения и адаптивные экраны: сайдбар + топбар, брейкпоинты Tailwind, container queries и флюидные сетки от мобильных до сверхшироких. |
+| `search` | Проектирование или улучшение поиска, представления результатов и фильтрации: добавление поиска, редизайн результатов, автодополнение, фильтры и борьба с нулевыми результатами. |
+| `security-ux` | Проектирование ориентированных на безопасность интерфейсов, которые защищают пользователей без фрустрации: MFA, UX паролей, уведомления об утечках, индикаторы доверия и безопасные формы. |
+| `semantic-html-css` | Семантический HTML, landmark-регионы, фокус и современный CSS: быстрый доступный UI, сочетаемый с WCAG-аудитами. |
+| `settings-pages` | Настройки: аккаунт, профиль, команда/участники, воркспейс и danger zone. Секционные макеты, навигация сайдбар/табы, автосейв vs явное сохранение и безопасные деструктивные действия. |
+| `setup` | Сбор и сохранение контекста дизайн-проекта: аудитория, индивидуальность бренда, UX-цели и дефолты реализации для будущей работы better-web-ui. Использовать при старте проекта и задании UI-направления. |
+| `showcase` | Создание выдающихся, технически амбициозных интерфейсов: кинематографичные переходы, продвинутый motion, тяжёлый рендеринг и другая работа высокого уровня, когда нужно впечатлить. |
+| `skillcodex-browser-ui` | Полный браузер документации SkillCodex: UI в стиле skills.sh, строго UI-только, по дизайн-гайдлайнам. |
 | `system-feedback` | Проверить, понятно ли пользователю, что произошло после действия, и предусмотрены ли состояния загрузки, пустоты и ошибки. Использовать при реализации сохранения, копирования, удаления, отправки, загрузки и синхронизации; при создании экранов с асинхронными данными; и при разборе интерфейса, кото... |
-| `theme-factory` | Generate and apply complete design themes — color palettes, typography pairings, and spacing systems — to any artifact. Use when the user wants to style a presentation, document, landing page, dashboard, or UI component with a cohesive visual theme, pick from pre-built themes, or generate a custo... |
-| `typeset` | Improve UI typography by fixing font choices, type scale, hierarchy, weight, and readability so text feels intentional. Use when the user mentions fonts, typography, type scale, readability, text hierarchy, or sizing that feels off. |
-| `ui-design` | Layouts, components, visual hierarchy, grid systems, and design systems for professional web interfaces. Defines rules for grid systems, whitespace, styleguides, design tokens, and UI patterns. |
-| `ui-patterns` | Proven, real-world UI interaction patterns from shipped products. Covers hero sections, navigation, cards, pricing, testimonials, CTAs, forms, and footer patterns derived from SiteInspire, CSSDA, Godly, Lapa Ninja, and CSS Winner analysis. |
-| `usability` | Heuristic evaluation, conversion optimization, form design, error handling, and usability as a measurable quality criterion per ISO 9241 and Nielsen heuristics. |
-| `vertical-site-conventions` | Compose pages and sites that read as their vertical: ecommerce-catalog storefronts that look like storefronts, hospitality-food sites that look like restaurants, b2b-manufacturer sites that look industrial. Use this skill whenever the user wants to build a site that looks like the vertical it ser... |
-| `visual-direction` | Current visual direction for web projects covering color palettes, font pairings, layout compositions, and imagery (Q1/Q2 2026). Derived from Dribbble trending, Behance top projects, Land-book curation, and Godly featured sites. Structured for periodic updates. |
-| `web-design-engineer` | Создание высококачественных визуальных web-артефактов на HTML/CSS/JS/React: страницы, прототипы, дашборды, слайды. |
-| `webdesign-review` | Meta-skill for comprehensive web design reviews. Orchestrates all 20 domain skills for systematic analysis of websites, designs, and prototypes against enterprise design standards. |
-| `web-typography` | Font selection, font pairing, typographic scales, line height, line length, and CSS implementation for web typography. Defines rules for readable, performant, and hierarchically structured text design. |
+| `theme-factory` | Генерация и применение полных дизайн-тем: палитры, пары шрифтов и системы отступов к любому артефакту. Использовать для стилизации презентаций, документов, лендингов, дашбордов и UI-компонентов. |
+| `typeset` | Улучшение типографики UI: выбор шрифтов, типовая шкала, иерархия, вес и читаемость, чтобы текст ощущался осмысленным. |
+| `ui-design` | Макеты, компоненты, визуальная иерархия, сетки и дизайн-системы для профессиональных веб-интерфейсов: правила сеток, белого пространства, стайлгайдов, дизайн-токенов и UI-паттернов. |
+| `ui-patterns` | Проверенные реальные паттерны UI-взаимодействий из выпущенных продуктов: герои, навигация, карточки, прайсинг, отзывы, CTA, формы и футеры. |
+| `usability` | Эвристическая оценка, оптимизация конверсии, дизайн форм, обработка ошибок и юзабилити как измеримый критерий качества по ISO 9241 и эвристикам Нильсена. |
+| `vertical-site-conventions` | Композиция страниц и сайтов, читающихся как их вертикаль: магазины выглядят как магазины, ресторанные сайты как рестораны, B2B-промсайты как индустриальные. |
+| `visual-direction` | Актуальное визуальное направление веб-проектов: палитры, пары шрифтов, композиции макетов и образы (Q1/Q2 2026) по Dribbble, Behance, Land-book и Godly. |
+| `web-design-engineer` | Создание качественных визуальных веб-артефактов на HTML/CSS/JavaScript/React: страницы, лендинги, дашборды, интерактивные прототипы, слайды, анимированные демо, макеты и визуализации данных. Использовать для любых визуальных или интерактивных фронтенд-задач. |
+| `webdesign-review` | Мета-скил для комплексного ревью веб-дизайна: оркестрирует все 20 доменных скилов для систематического анализа сайтов, дизайнов и прототипов по корпоративным стандартам. |
+| `web-typography` | Выбор шрифтов, пары шрифтов, типографические шкалы, высота строки, длина строки и CSS-реализация: правила читабельного, производительного и иерархически структурированного текста. |
 
 ### React / Next.js / TypeScript
 
 | Скил | Назначение |
 |------|------------|
-| `api-handbook` | REST and Next.js Route Handler design - status codes, errors, idempotency, and versioning without bloat |
-| `auth-handbook` | Sessions, cookies, OAuth callbacks, and RBAC for Next.js App Router - httpOnly, CSRF-same-site boundaries, complements env-config-agent |
-| `auth-screens` | Use when building authentication UI — login, signup, forgot/reset password, email verification, and OAuth buttons. Covers layout, validation, security-conscious UX (no user enumeration), and loading/error states. |
-| `billing-and-pricing` | Use when building pricing tables, plan cards, paywalls, and upgrade prompts. Covers monthly/annual toggles, highlighting the recommended plan, usage limits, feature gating UI, and clear upgrade CTAs. |
-| `client-data-fetching` | TanStack Query v5 with Next.js App Router - query keys, hydration, staleTime, and server prefetch without double fetch |
-| `code-assistant` | React and Next.js coding - small diffs, pnpm, TypeScript TSX, stable versions |
-| `component-architecture` | Use when structuring React components in a SaaS app — composing shadcn/ui, cva variants, compound components, controlled vs uncontrolled state, and knowing when to abstract versus inline. |
-| `component-patterns` | Modern UI component selection, composition, and theming patterns for web applications. Covers compound components, design tokens, variant systems, responsive patterns, and form architecture derived from 21st.dev SDK, Godly featured products, and current best practices. |
-| `container-local-dev` | Docker multi-stage builds and Compose for Next.js on Node LTS with pnpm plus Postgres Redis sidecars and dockerignore hygiene |
-| `database-schema-agent` | Design or audit Prisma schemas for Next.js - relations, indexes, naming, migration notes |
-| `data-layer-handbook` | Prisma vs Drizzle and SQL in Next.js - when to choose relations migrations serverless drivers and pairing with database-schema-agent |
-| `data-tables` | Use when building data tables — sorting, filtering, pagination, row selection and bulk actions with TanStack Table + shadcn/ui, plus the loading, empty, and error states tables almost always forget. |
-| `edge-runtime-handbook` | Next.js Edge Runtime limits - what runs where and how to split Node-only code |
-| `env-config-agent` | Manage Next.js environment variables safely - .env.example, NEXT_PUBLIC_ rules, typed env, secret leak checks |
-| `error-loading-not-found` | Next.js App Router error.tsx, not-found, loading, and global-error - recovery UI, logging, and boundaries users actually see |
-| `forms-and-validation` | Use when building forms with react-hook-form + zod and shadcn/ui Form — schema validation, inline errors, accessible fields, async submit with loading and server errors, and avoiding uncontrolled-input bugs. |
-| `frontend-skills` | Use when writing, reviewing, or refactoring React 19, Next.js 14+ / 16 App Router, or Tailwind CSS code. Triggers on tasks involving Server/Client Components, data fetching, cache directives, route handlers, image/font optimization, component API design, or Tailwind class composition. |
-| `frontend-web` | TanStack Router + React frontend patterns, ConnectRPC gRPC-Web client, Zustand stores, Tailwind v4, i18n, and AppearancePanel theming for the Anachak platform. |
-| `github-actions-ci` | GitHub Actions for Next.js and TypeScript - lint test build cache and PR checks |
-| `i18n-handbook` | Internationalization for Next.js App Router - locale routing, message files, and RTL layout checks |
-| `markdown-pipeline` | Markdown and MDX pipelines with remark rehype - security performance and GFM parity |
-| `monorepo-tooling` | pnpm workspaces and Turborepo with Next.js apps - boundaries caching and shared packages |
-| `next-server-patterns` | Next.js App Router server components, streaming, caching, and client boundaries without guesswork |
-| `observability-handbook` | Structured logs correlation IDs and error reporting for Next.js App Router - PII boundaries and tracing hooks without vendor lock-in |
-| `payments-handbook` | Checkout PCI scope card data boundaries - PSP tokens only pair with webhook-receivers never store or log PAN |
-| `performance-audit` | Audit Next.js performance - bundle size, images, RSC boundaries, Core Web Vitals checklist |
-| `react-email-templates` | Transactional email with React components - layout tables text version and test sends |
-| `realtime-handbook` | SSE and WebSockets in Next.js Route Handlers - auth connection limits and when to pick each transport |
-| `secure-dependencies` | Lockfiles, audits, install-script risk, and CI dependency review for Node and pnpm - reduce supply-chain surprises |
-| `security-headers` | HTTP security headers and CSP for Next.js - safe defaults, nonces, and report-only rollout |
-| `server-caching-handbook` | Next.js revalidateTag stampedes unstable_cache external Redis and fetch cache hierarchy for production traffic |
-| `storybook-handbook` | Storybook 8 for React TypeScript - CSF3 stories a11y addon and docs aligned with design-guidelines |
-| `testing-agent` | Write and improve React/Next.js tests with Vitest, Testing Library, and Playwright E2E |
-| `typescript-react-nextjs-patterns` | Продвинутые TypeScript-паттерны для React и Next.js: сужение типов, Props, generics, формы, SSR/CSR. |
-| `typescript-refactor` | Refactor JavaScript to strict TypeScript or audit types - incremental .js to .ts with explicit return types |
-| `web-design-guidelines` | Web design for SkillCodex doc UIs - React + TypeScript + Tailwind; build or audit per design-guidelines. Prefer div + CSS motion; use framer-motion only in client components. |
-| `webhook-receivers` | Secure Next.js Route Handlers for webhooks - signature verify idempotency and replay protection |
+| `api-handbook` | Проектирование REST и Next.js Route Handler: статус-коды, ошибки, идемпотентность и версионирование без раздувания. |
+| `auth-handbook` | Сессии, куки, OAuth-колбэки и RBAC в Next.js App Router: httpOnly, границы CSRF/same-site; дополняет env-config-agent. |
+| `auth-screens` | Создание UI авторизации: логин, регистрация, восстановление пароля, верификация email и OAuth-кнопки. Охватывает вёрстку, валидацию, безопасный UX без перечисления пользователей и состояния загрузки/ошибок. |
+| `billing-and-pricing` | Создание таблиц тарифов, карточек планов, пейволов и призывов к апгрейду: переключатель месяц/год, подсветка рекомендуемого плана, лимиты использования, UI гейтов фич и понятные CTA апгрейда. |
+| `client-data-fetching` | TanStack Query v5 с Next.js App Router: ключи запросов, гидратация, staleTime и серверный префетч без двойной выборки. |
+| `code-assistant` | Написание кода на React и Next.js: небольшие диффы, pnpm, TypeScript TSX, стабильные версии. |
+| `component-architecture` | Структурирование React-компонентов в SaaS-приложении: композиция shadcn/ui, варианты cva, compound components, контролируемое/неконтролируемое состояние и выбор между абстракцией и инлайном. |
+| `component-patterns` | Современные паттерны выбора, композиции и темизации UI-компонентов для веб-приложений: compound components, дизайн-токены, системы вариантов, адаптивные паттерны и архитектура форм. |
+| `container-local-dev` | Docker multi-stage сборки и Compose для Next.js на Node LTS с pnpm, плюс сайдкары Postgres и Redis и гигиена dockerignore. |
+| `database-schema-agent` | Проектирование или аудит Prisma-схем для Next.js: отношения, индексы, именование, заметки о миграциях. |
+| `data-layer-handbook` | Prisma vs Drizzle и SQL в Next.js: когда выбирать отношения, миграции, serverless-драйверы; связка с database-schema-agent. |
+| `data-tables` | Создание таблиц данных: сортировка, фильтрация, пагинация, выбор строк и массовые действия на TanStack Table + shadcn/ui, плюс состояния загрузки, пустоты и ошибок. |
+| `edge-runtime-handbook` | Ограничения Next.js Edge Runtime: что где выполняется и как разделять Node-специфичный код. |
+| `env-config-agent` | Безопасное управление переменными окружения Next.js: .env.example, правила NEXT_PUBLIC_, типизированные env и проверки утечек секретов. |
+| `error-loading-not-found` | Next.js App Router error.tsx, not-found, loading и global-error: восстановление, логирование и границы, которые реально видят пользователи. |
+| `forms-and-validation` | Формы на react-hook-form + zod и shadcn/ui Form: schema-валидация, инлайн-ошибки, доступные поля, асинхронный сабмит с загрузкой и серверными ошибками. |
+| `frontend-skills` | Написание, ревью и рефакторинг React 19, Next.js 14+/16 App Router и Tailwind CSS: Server/Client Components, выборка данных, директивы кэша, route handlers, оптимизация изображений/шрифтов и API компонентов. |
+| `frontend-web` | Паттерны TanStack Router + React, gRPC-Web клиент ConnectRPC, Zustand-хранилища, Tailwind v4, i18n и темизация AppearancePanel для платформы Anachak. |
+| `github-actions-ci` | GitHub Actions для Next.js и TypeScript: lint, тесты, сборка, кэш и проверки PR. |
+| `i18n-handbook` | Интернационализация в Next.js App Router: локальная маршрутизация, файлы сообщений и проверки RTL-макетов. |
+| `markdown-pipeline` | Пайплайны Markdown и MDX с remark/rehype: безопасность, производительность и паритет GFM. |
+| `monorepo-tooling` | pnpm workspaces и Turborepo с Next.js-приложениями: границы, кэширование и общие пакеты. |
+| `next-server-patterns` | Серверные компоненты Next.js App Router, стриминг, кэширование и границы клиента без догадок. |
+| `observability-handbook` | Структурированные логи, корреляционные ID и репортинг ошибок в Next.js App Router: границы PII и хуки трейсинга без привязки к вендору. |
+| `payments-handbook` | Границы PCI и данных карт в чекауте: только PSP-токены в паре с вебхук-приёмниками, никогда не хранить и не логировать PAN. |
+| `performance-audit` | Аудит производительности Next.js: размер бандла, изображения, границы RSC, чек-лист Core Web Vitals. |
+| `react-email-templates` | Транзакционные письма на React-компонентах: табличная вёрстка, текстовая версия и тестовые отправки. |
+| `realtime-handbook` | SSE и WebSockets в Next.js Route Handlers: аутентификация, лимиты соединений и выбор транспорта. |
+| `secure-dependencies` | Локфайлы, аудиты, риск install-скриптов и ревью зависимостей в CI для Node и pnpm: меньше сюрпризов в цепочке поставок. |
+| `security-headers` | HTTP-заголовки безопасности и CSP для Next.js: безопасные дефолты, nonce и раскатка в режиме report-only. |
+| `server-caching-handbook` | Кэширование в Next.js: revalidateTag, стампеды, unstable_cache, внешний Redis и иерархия fetch-кэша для продакшн-трафика. |
+| `storybook-handbook` | Storybook 8 для React и TypeScript: CSF3-стори, a11y-аддон и документация по дизайн-гайдлайнам. |
+| `testing-agent` | Написание и улучшение тестов React/Next.js на Vitest, Testing Library и Playwright E2E. |
+| `typescript-react-nextjs-patterns` | Продакшн-справочник по TypeScript для React и Next.js: сужение типов, Props, generic-хуки, discriminated unions, as const, satisfies, Zod, TanStack Query, границы сервер/клиент, формы, состояние, производительность, доступность, отладка и ревью кода. |
+| `typescript-refactor` | Рефакторинг JavaScript в строгий TypeScript или аудит типов: инкрементальный переход .js в .ts с явными типами возврата. |
+| `web-design-guidelines` | Веб-дизайн для UI документации SkillCodex: React + TypeScript + Tailwind; создавать или аудитить по дизайн-гайдлайнам. Предпочитать div + CSS motion; framer-motion только в клиентских компонентах. |
+| `webhook-receivers` | Безопасные Next.js Route Handlers для вебхуков: проверка подписи, идемпотентность и защита от повторов. |
 
 ### Backend, базы данных и данные
 
 | Скил | Назначение |
 |------|------------|
-| `api-design` | Design production-grade APIs — REST, GraphQL, gRPC, and WebSocket — with a focus on consistency, versioning, error standards, and developer experience. Use when the user asks to design an API, define endpoints, choose between REST and GraphQL, structure request/response schemas, handle API versio... |
-| `backend-dev` | Production-grade backend development guidance — language and framework agnostic. Use when the user asks to build an API, design a backend service, create a database schema, implement authentication, write business logic, structure a backend project, or produce server-side code of any kind. |
-| `database-architect` | Expert database architecture and design guidance — schema/data modeling, ER diagrams, indexing, query optimization, partitioning, replication and high availability, transactions and locking, connection pooling, migrations, and multi-tenancy patterns across PostgreSQL, MySQL, MongoDB, and Redis. U... |
-| `data-engineer` | Design and build production-grade data pipelines, ETL/ELT workflows, data warehouses, and streaming architectures. Use when the user asks about data pipelines, ETL/ELT, dbt models, Airflow DAGs, Kafka, data warehouses (Snowflake, BigQuery, Redshift), data quality, schema design for analytics, eve... |
-| `data-viz` | Design or improve data visualizations, charts, and data presentation interfaces. Use when the user asks to add charts, build dashboards, visualize data, choose chart types, make data accessible, or present metrics and analytics. |
-| `data-warehouse-experimentation` | Running experiments out of the data warehouse instead of via dedicated experiment platforms. SQL-based assignment, exposure logging discipline, metric definitions in dbt models, statistical analysis in SQL or Python, variance reduction with CUPED, sequential testing, and the operational tradeoffs... |
-| `elasticsearch` | Elasticsearch 集群管理 |
-| `mongodb` | MongoDB 数据库管理 |
-| `mysql` | MySQL 数据库管理与运维 |
-| `postgresql` | PostgreSQL 数据库管理 |
-| `python-productive` | Modern Python with uv, Pydantic v2, strict typing, and fast paths - projects, tooling, optional native extensions |
-| `redis` | Redis 数据库管理 |
-| `sql-optimization` | SQL 优化与调优 |
-| `system-design` | Expert system design guidance for architects and senior engineers. Use when the user asks about microservices, monolith design, event-driven architecture, scalability, reliability, caching strategies, queue design, load balancers, or API gateways. |
-| `uv-audit` | Аудит безопасности Python-зависимостей через uv (uv-audit / pip-audit). |
-| `write-nextflow-local-modules` | Создание и обновление локальных Nextflow-модулей (modules/local/). |
+| `api-design` | Проектирование продакшн-API: REST, GraphQL, gRPC и WebSocket с фокусом на консистентность, версионирование, стандарты ошибок и опыт разработчика. Использовать при проектировании API, выборе между REST и GraphQL, структурировании схем запроса/ответа или создании OpenAPI/Swagger-спецификации. |
+| `backend-dev` | Рекомендации по продакшн-бэкенду без привязки к языку и фреймворку: API, сервисы, схемы БД, аутентификация, бизнес-логика и структура проекта. |
+| `database-architect` | Экспертная архитектура баз данных: моделирование схем, ER-диаграммы, индексы, оптимизация запросов, партиционирование, репликация и HA, транзакции, пулы соединений, миграции и мультитенантность в PostgreSQL, MySQL, MongoDB и Redis. |
+| `data-engineer` | Проектирование и создание продакшн-пайплайнов данных, ETL/ELT, хранилищ и стриминговых архитектур: dbt, Airflow, Kafka, Snowflake, BigQuery, Redshift и качество данных. |
+| `data-viz` | Проектирование или улучшение визуализаций данных, графиков и интерфейсов представления данных: выбор типа графика, доступность данных, метрики и аналитика. |
+| `data-warehouse-experimentation` | Проведение экспериментов прямо в хранилище данных вместо платформ экспериментов: SQL-ассайнмент, логирование экспозиций, метрики в dbt, статистика в SQL/Python, CUPED и последовательное тестирование. |
+| `elasticsearch` | Управление кластером Elasticsearch. |
+| `mongodb` | Управление базой данных MongoDB. |
+| `mysql` | Управление и эксплуатация MySQL. |
+| `postgresql` | Управление базой данных PostgreSQL. |
+| `python-productive` | Современный Python с uv, Pydantic v2, строгой типизацией и быстрыми путями: проекты, инструменты, опциональные нативные расширения. |
+| `redis` | Управление базой данных Redis. |
+| `sql-optimization` | Оптимизация и настройка SQL. |
+| `system-design` | Экспертные рекомендации по проектированию систем: микросервисы, монолит, событийная архитектура, масштабируемость, надёжность, кэширование, очереди, балансировщики и API-шлюзы. |
+| `uv-audit` | Аудит безопасности Python-зависимостей через uv: поиск уязвимостей и CVE, обновление пакетов, устранение устаревших зависимостей и поддержание pyproject.toml в актуальном и безопасном состоянии. |
+| `write-nextflow-local-modules` | Создание и обновление локальных модулей Nextflow для любого пайплайна. Модули живут в modules/local/ и следуют соглашениям nf-core с ослабленными требованиями: без nf-core lint, локальные тестовые фикстуры, тесты nf-test и современный topic-channel формат вывода версий. |
 
 ### DevOps, Linux и инфраструктура
 
 | Скил | Назначение |
 |------|------------|
-| `ansible` | Ansible 自动化运维 |
-| `apache` | Apache HTTP Server 配置 |
-| `backup-and-disaster-recovery` | Plan and run backups, set recovery objectives, and run disaster recovery drills. Use this skill when defining RPO/RTO targets, designing backup architecture, deciding what to back up and how often, planning for full-region or platform outages, or running a restoration drill. Triggers on backup, r... |
-| `backup-strategy` | 备份策略设计 |
-| `benchmarking` | 性能基准测试 |
-| `ci-cd` | CI/CD 流水线配置 |
-| `cloud-backup` | 云备份方案 |
-| `compose` | Docker Compose 编排 |
-| `configmap-secret` | Kubernetes ConfigMap 与 Secret |
-| `container-ops` | Docker 容器操作与管理 |
-| `cost-optimization` | Audit and reduce infrastructure and tooling costs without sacrificing reliability or velocity. Use this skill when reviewing monthly cloud or SaaS spend, finding unused resources, rightsizing infrastructure, negotiating vendor contracts, deciding what to consolidate, or planning for budget cuts. ... |
-| `create-dockerfile` | Create optimized, secure, production-ready Dockerfiles based on user requirements and application context. |
-| `create-terraform-helm-upgrade-plan` | Create a detailed upgrade plan for a Helm release managed by Terraform, comparing the current and desired chart versions including breaking changes and required code changes. |
-| `cron` | 定时任务管理 |
-| `deployment` | Kubernetes Deployment 管理 |
-| `devops-platform` | Production-grade DevOps and platform engineering guidance — Docker, Kubernetes, CI/CD pipelines, Terraform/IaC, GitOps, deployment strategies (rolling/blue-green/canary), monitoring and alerting, and cloud patterns across AWS/Azure/GCP. Use this whenever the user asks about containerizing an app,... |
-| `diagnose-crashloop` | Triage pods restarting repeatedly and identify the most likely root cause. |
-| `diagnose-imagepullbackoff` | Determine why a pod cannot pull its container image and resolve safely. |
-| `disaster-recovery` | 灾难恢复 |
-| `dns` | DNS 配置与排查 |
-| `dockerfile` | Dockerfile 编写最佳实践 |
-| `domain-strategy` | Plan, manage, and optimize a domain portfolio. Use this skill for DNS architecture decisions, redirect strategies, registrar choice, parking unused domains, multi-site setups, and domain consolidation or split planning. Triggers on DNS, domain, registrar, redirect, parking, subdomain, apex, www v... |
-| `feature-flagging` | Operational discipline for feature flags as production infrastructure. Flag types, naming, targeting rules, rollout strategy, lifecycle, governance, stale flag management, and the technical debt patterns that bite teams who weren't deliberate about it. |
-| `file-operations` | Linux file and directory operations |
-| `firewall` | 防火墙配置 |
-| `git-advanced` | Git 高级操作 |
-| `hardening` | 系统加固 |
-| `helm` | Helm 包管理 |
-| `image-management` | Docker 镜像管理 |
-| `incident-response` | Manage active production incidents through detection, triage, mitigation, communication, and resolution with structured roles and decision-making. Use this skill whenever the user has an active incident, a production issue, a service outage, a security incident, or needs to plan incident response... |
-| `investigate-drift` | Determine why actual infrastructure differs from Terraform state and choose a safe reconciliation path. |
-| `kubectl-basics` | kubectl 基础操作与常用命令 |
-| `land-and-deploy` | Merge, deploy, and verify production skill. Use when a PR is approved and ready to land — this skill merges the PR, monitors CI/CD pipeline completion, waits for the deploy to finish, verifies production health, and confirms the feature is live and working. The final step from "approved" to "veri... |
-| `load-balancer` | 负载均衡配置 |
-| `log-analysis` | 日志分析与处理 |
-| `maintenance-check-aws-eks` | Check everything that can be upgraded for maintenance across an AWS EKS Kubernetes cluster and output a decision file with Jira-formatted tickets for any required upgrades. |
-| `maintenance-create-ticket-on-jira` | Create or update a Jira ticket for a workload maintenance upgrade, based on maintenance upgrade check files. |
-| `monitoring` | 监控与告警 |
-| `monitoring-and-alerting` | Design and run a monitoring system for a website or web app. Use this skill when setting up uptime checks, defining SLOs, configuring error tracking, choosing what to alert on, designing on-call rotations, or fixing alert fatigue. Triggers on monitoring, alerts, uptime, SLO, SLA, error rate, on-c... |
-| `networking` | Docker 容器网络 |
-| `network-tools` | Linux network tools and diagnostics |
-| `nginx` | Nginx configuration and optimization |
-| `pod-management` | Kubernetes Pod 管理与调试 |
-| `process-management` | Linux process management and control |
-| `profiling` | 性能分析 |
-| `prometheus-cli` | Query Prometheus metrics using the HTTP API via curl. Use for instant queries, range queries, metadata lookups, and alert/rule inspection. |
-| `proxy` | 代理服务器配置 |
-| `recover-state-lock` | Safely assess and recover from a stuck Terraform state lock. |
-| `rsync` | rsync 文件同步与备份 |
-| `safety-guardrails` | AI safety guardrails skill — warn before destructive commands, lock file edits to a specific directory, and prevent accidental damage to production systems. Use when working in a production environment, debugging a live system, doing risky migrations, or whenever the user says "be careful", "don'... |
-| `security-baseline` | Establish a security baseline for a website or web app. Use this skill when configuring HTTPS and TLS, setting security headers, planning secrets management, evaluating CSP policies, doing a basic security audit, or hardening a site before launch. Triggers on security headers, HTTPS, TLS, CSP, co... |
-| `security-engineer` | Expert application and infrastructure security guidance. Use when the user asks about OWASP Top 10, JWT review, RBAC, OAuth, threat modeling, SSRF, CSRF, XSS, or secret management. |
-| `service-ingress` | Kubernetes Service 与 Ingress |
-| `sev1-first-15-minutes` | Execute the initial incident workflow to stabilize, communicate, and delegate. |
-| `shell-scripting` | Bash Shell 脚本编写 |
-| `skills` | Роутер и индекс библиотеки Linux/DevOps скилов: загрузить первым, чтобы найти нужный специализированный скил. |
-| `snapshot` | 快照管理 |
-| `sre-canary` | Post-deploy monitoring and canary verification skill. Use when the user has just deployed and wants to verify production health, watch for console errors or performance regressions, run a post-deploy monitoring loop, or validate that a canary deployment is stable before rolling out to 100% traffic. |
-| `ssh` | SSH 管理与安全 |
-| `ssl-tls` | SSL/TLS 证书 |
-| `sysadmin-qa` | Linux SysAdmin 核心知識問答 — 284 題精煉版，涵蓋 Junior 到 Guru 級別 |
-| `system-admin` | Linux system administration and monitoring |
-| `systemd` | Systemd 服务管理 |
-| `tar-compression` | 归档与压缩 |
-| `tcp-ip` | TCP/IP 网络诊断与排查 |
-| `terminal-fish` | Fish shell configuration, aliases, gRPC debugging, PostgreSQL CLI helpers, and dev workflow shortcuts for the Anachak platform. |
-| `terraform` | Terraform 基础设施即代码 |
-| `traffic-analysis` | 流量分析与抓包 |
-| `triage-access-denied` | Identify why an AWS API call is denied and what policy element blocks it. |
-| `triage-app-outofsync` | Identify why an Argo CD application is OutOfSync and resolve safely. |
-| `triage-cost-spike` | Identify the primary drivers of a sudden cloud cost increase and implement safe mitigations. |
-| `triage-eks-node-notready` | Diagnose EKS worker nodes in NotReady and determine safe remediation. |
-| `triage-error-budget-burn` | Investigate rapid SLO burn and identify whether the driver is errors, latency, or availability. |
-| `triage-latency-regression` | Identify what changed and where latency increased, using logs/metrics/traces. |
-| `triage-node-pressure` | Diagnose node-level memory/disk/pid pressure and determine safe mitigations. |
-| `triage-pending-pods` | Diagnose pods stuck in Pending and identify scheduling constraints. |
-| `triage-quota-exceeded` | Diagnose GCP quota errors and identify the quota, scope, and fastest safe mitigation. |
-| `triage-service-dns` | Diagnose in-cluster DNS resolution failures and isolate root causes. |
-| `triage-suspected-secret-exposure` | Contain and respond to a suspected credential/secret exposure without increasing blast radius. |
-| `troubleshooting` | 性能问题排查 |
-| `tuning` | 系统调优 |
-| `user-permissions` | Linux user and permission management |
-| `vpn` | VPN 配置与管理 |
-| `win11-admin` | Windows 11 system administration and hardening. PROACTIVELY activate for: (1) Registry tweaking and optimization, (2) Windows services management and cleanup, (3) Group Policy (GPO) configuration, (4) Debloating and telemetry control, (5) System optimization and performance tuning, (6) CIS/STIG s... |
-| `windows-system` | Use when managing, troubleshooting, or inspecting Windows systems — processes, services, disk, network, registry, users, event logs, updates, or system configuration. Covers PowerShell-native commands for system administration. |
+| `ansible` | Автоматизация эксплуатации через Ansible. |
+| `apache` | Настройка Apache HTTP Server. |
+| `backup-and-disaster-recovery` | Планирование и запуск резервного копирования, целевые показатели восстановления и учения по аварийному восстановлению: RPO/RTO, архитектура бэкапов, что и как часто бэкапить, полные отказы регионов/платформ и учения восстановления. |
+| `backup-strategy` | Проектирование стратегии резервного копирования. |
+| `benchmarking` | Тестирование производительности и эталоны. |
+| `ci-cd` | Настройка пайплайнов CI/CD. |
+| `cloud-backup` | Решения облачного резервного копирования. |
+| `compose` | Оркестрация через Docker Compose. |
+| `configmap-secret` | Kubernetes ConfigMap и Secret. |
+| `container-ops` | Операции и управление Docker-контейнерами. |
+| `cost-optimization` | Аудит и снижение расходов на инфраструктуру и инструменты без потери надёжности и скорости: обзор облачных и SaaS-затрат, поиск неиспользуемых ресурсов, правильное масштабирование, переговоры с вендорами и планирование бюджетов. |
+| `create-dockerfile` | Создание оптимизированных, безопасных, продакшн-готовых Dockerfile по требованиям пользователя и контексту приложения. |
+| `create-terraform-helm-upgrade-plan` | Создание детального плана апгрейда Helm-релиза под управлением Terraform: сравнение текущей и желаемой версий чарта, включая ломающие изменения и требуемые правки кода. |
+| `cron` | Управление планировщиком задач cron. |
+| `deployment` | Управление Kubernetes Deployment. |
+| `devops-platform` | Продакшн-рекомендации по DevOps и платформенной инженерии: Docker, Kubernetes, CI/CD, Terraform/IaC, GitOps, стратегии деплоя, мониторинг, алерты и облачные паттерны AWS/Azure/GCP. |
+| `diagnose-crashloop` | Триаж подов, перезапускающихся по кругу, и определение наиболее вероятной корневой причины. |
+| `diagnose-imagepullbackoff` | Определение причины, по которой под не может скачать образ контейнера, и безопасное решение проблемы. |
+| `disaster-recovery` | Аварийное восстановление. |
+| `dns` | Настройка и диагностика DNS. |
+| `dockerfile` | Лучшие практики написания Dockerfile. |
+| `domain-strategy` | Планирование, управление и оптимизация портфеля доменов: решения по DNS-архитектуре, редиректы, выбор регистратора, парковка доменов, мультисайты, консолидация и разделение доменов. |
+| `feature-flagging` | Операционная дисциплина фича-флагов как продакшн-инфраструктуры: типы, именование, правила таргетинга, стратегия раскатки, жизненный цикл, управление, устаревшие флаги и техдолг. |
+| `file-operations` | Операции с файлами и каталогами в Linux. |
+| `firewall` | Настройка брандмауэра. |
+| `git-advanced` | Продвинутые операции с Git. |
+| `hardening` | Укрепление безопасности системы. |
+| `helm` | Управление пакетами через Helm. |
+| `image-management` | Управление Docker-образами. |
+| `incident-response` | Управление активными продакшн-инцидентами: обнаружение, триаж, смягчение, коммуникация и разрешение со структурированными ролями. Использовать при активном инциденте, отказе сервиса или планировании процедур реагирования. |
+| `investigate-drift` | Определение, почему фактическая инфраструктура отличается от состояния Terraform, и выбор безопасного пути сверки. |
+| `kubectl-basics` | Базовые операции и частые команды kubectl. |
+| `land-and-deploy` | Мердж, деплой и верификация продакшна: когда PR одобрен, скил мержит его, следит за завершением CI/CD, дожидается деплоя, проверяет здоровье продакшна и подтверждает, что фича работает. |
+| `load-balancer` | Настройка балансировки нагрузки. |
+| `log-analysis` | Анализ и обработка логов. |
+| `maintenance-check-aws-eks` | Проверка всего, что можно обновить, в кластере AWS EKS и вывод файла решений с тикетами в формате Jira для необходимых апгрейдов. |
+| `maintenance-create-ticket-on-jira` | Создание или обновление тикета Jira для апгрейда ворклоада на основе файлов проверки обслуживания. |
+| `monitoring` | Мониторинг и оповещения. |
+| `monitoring-and-alerting` | Проектирование и ведение системы мониторинга: аптайм-чеки, SLO, отслеживание ошибок, выбор алертов, дежурства и борьба с усталостью от алертов. |
+| `networking` | Сети Docker-контейнеров. |
+| `network-tools` | Сетевые инструменты и диагностика Linux. |
+| `nginx` | Настройка и оптимизация Nginx. |
+| `pod-management` | Управление и отладка Kubernetes Pod. |
+| `process-management` | Управление и контроль процессов в Linux. |
+| `profiling` | Профилирование производительности. |
+| `prometheus-cli` | Запросы метрик Prometheus через HTTP API при помощи curl: мгновенные и диапазонные запросы, поиск метаданных и просмотр алертов/правил. |
+| `proxy` | Настройка прокси-сервера. |
+| `recover-state-lock` | Безопасная оценка и восстановление после зависшей блокировки состояния Terraform. |
+| `rsync` | Синхронизация файлов и резервное копирование через rsync. |
+| `safety-guardrails` | Скил безопасности ИИ: предупреждать о разрушительных командах, ограничивать правки файлов каталогом и предотвращать случайный ущерб продакшн-системам. |
+| `security-baseline` | Базовый уровень безопасности сайта: HTTPS/TLS, заголовки безопасности, управление секретами, CSP, базовый аудит и укрепление перед запуском. |
+| `security-engineer` | Экспертные рекомендации по безопасности приложений и инфраструктуры: OWASP Top 10, JWT, RBAC, OAuth, моделирование угроз, SSRF, CSRF, XSS и управление секретами. |
+| `service-ingress` | Kubernetes Service и Ingress. |
+| `sev1-first-15-minutes` | Выполнение начального воркфлоу инцидента для стабилизации, коммуникации и делегирования. |
+| `shell-scripting` | Написание bash-скриптов. |
+| `skills` | Маршрутизатор и индекс библиотеки Linux/DevOps скилов. Загружать первым, чтобы найти нужный специализированный скил. Охватывает: администрирование Linux, Docker, Kubernetes, безопасность, DevOps, базы данных, резервное копирование, сеть, производительность, серверы и облачные CLI. Использовать дл... |
+| `snapshot` | Управление снимками. |
+| `sre-canary` | Постдеплойный мониторинг и верификация канареечных деплоев: проверка здоровья продакшна, ошибок консоли и регрессий производительности до раскатки на 100% трафика. |
+| `ssh` | Управление SSH и безопасность. |
+| `ssl-tls` | SSL/TLS сертификаты. |
+| `sysadmin-qa` | Ключевые вопросы Linux SysAdmin: сжатая версия 284 вопросов от Junior до Guru. |
+| `system-admin` | Администрирование и мониторинг Linux. |
+| `systemd` | Управление службами через systemd. |
+| `tar-compression` | Архивация и сжатие. |
+| `tcp-ip` | Диагностика и устранение неполадок сети TCP/IP. |
+| `terminal-fish` | Конфигурация Fish shell, алиасы, отладка gRPC, PostgreSQL CLI-хелперы и шорткаты дев-воркфлоу для платформы Anachak. |
+| `terraform` | Terraform: инфраструктура как код. |
+| `traffic-analysis` | Анализ трафика и захват пакетов. |
+| `triage-access-denied` | Определение, почему вызов AWS API отклонён и какой элемент политики его блокирует. |
+| `triage-app-outofsync` | Определение, почему приложение Argo CD в состоянии OutOfSync, и безопасное разрешение. |
+| `triage-cost-spike` | Определение основных причин внезапного роста облачных расходов и внедрение безопасных мер. |
+| `triage-eks-node-notready` | Диагностика воркер-нод EKS в состоянии NotReady и выбор безопасного восстановления. |
+| `triage-error-budget-burn` | Расследование быстрого сгорания SLO и определение, драйвером чего оно является: ошибок, задержки или доступности. |
+| `triage-latency-regression` | Определение, что изменилось и где выросла задержка, по логам, метрикам и трейсам. |
+| `triage-node-pressure` | Диагностика давления памяти/диска/pid на ноде и определение безопасных мер. |
+| `triage-pending-pods` | Диагностика подов, застрявших в Pending, и определение ограничений планировщика. |
+| `triage-quota-exceeded` | Диагностика ошибок квоты GCP: определение квоты, области и самого быстрого безопасного решения. |
+| `triage-service-dns` | Диагностика сбоев DNS-резолва внутри кластера и изоляция корневых причин. |
+| `triage-suspected-secret-exposure` | Сдерживание и реагирование на предполагаемую утечку учётных данных/секретов без расширения зоны поражения. |
+| `troubleshooting` | Устранение проблем производительности. |
+| `tuning` | Настройка и оптимизация системы. |
+| `user-permissions` | Управление пользователями и правами в Linux. |
+| `vpn` | Настройка и управление VPN. |
+| `win11-admin` | Администрирование и укрепление Windows 11: реестр, службы, групповые политики, деблоатинг и контроль телеметрии, оптимизация, hardening CIS/STIG, брандмауэр, Defender, задачи, драйверы, обновления и учётные записи. Готовые команды PowerShell и процедуры отката. |
+| `windows-system` | Управление, устранение неполадок и инспекция Windows: процессы, службы, диск, сеть, реестр, пользователи, журналы событий, обновления и конфигурация. PowerShell-команды для администрирования. |
 
 ### Cloud CLI
 
 | Скил | Назначение |
 |------|------------|
-| `aliyun-cli` | 阿里云 CLI 操作 |
-| `aws-cli` | AWS CLI 操作 |
-| `azure-cli` | Azure CLI 操作 |
-| `gcloud` | Google Cloud CLI 操作 |
-| `github-cli` | Perform GitHub operations on GitHub using the gh CLI. Use for issues, pull requests, pipelines, repositories, and project management. ALSO use this skill when asked to review a GitHub PR — when a GitHub PR URL or PR ID is provided, use gh to fetch and review the diff instead of the code-review sk... |
-| `gitlab-cli` | Perform GitLab operations using the glab CLI. Use for issues, merge requests, pipelines, repositories, and project management. ALSO use this skill when asked to review a GitLab MR or PR — when a GitLab MR URL or MR ID is provided, use glab to fetch and review the diff instead of the code-review s... |
-| `grafana-cli` | Perform Grafana operations using the Grafana HTTP API via curl. Use for querying dashboards, datasources, alerts, and annotations. |
-| `jenkins-cli` | Perform Jenkins operations using the jenkins-cli. |
-| `jira-and-confluence-cli` | Perform Jira and Confluence operations using the Atlassian CLI (acli). Use for issues, sprints, boards, pages, spaces, and project management. |
-| `slack-cli` | Perform Slack operations using the Slack CLI for app management and the Slack Web API (curl) for messaging, channel, and user operations. |
+| `aliyun-cli` | Операции с Aliyun CLI. |
+| `aws-cli` | Операции с AWS CLI. |
+| `azure-cli` | Операции с Azure CLI. |
+| `gcloud` | Операции с Google Cloud CLI. |
+| `github-cli` | Операции GitHub через gh CLI: issues, PR, пайплайны, репозитории и управление проектами. Также использовать для ревью GitHub-PR по URL или ID. |
+| `gitlab-cli` | Операции GitLab через glab CLI: issues, merge requests, пайплайны, репозитории и управление проектами. Также использовать для ревью GitLab MR/PR по URL или ID. |
+| `grafana-cli` | Операции Grafana через HTTP API при помощи curl: запросы к дашбордам, источникам данных, алертам и аннотациям. |
+| `jenkins-cli` | Операции Jenkins через jenkins-cli. |
+| `jira-and-confluence-cli` | Операции Jira и Confluence через Atlassian CLI (acli): issues, спринты, доски, страницы, пространства и управление проектами. |
+| `slack-cli` | Операции Slack через Slack CLI (управление приложениями) и Slack Web API через curl (сообщения, каналы, пользователи). |
 
 ### Контент, маркетинг и SEO
 
 | Скил | Назначение |
 |------|------------|
-| `ads-creative-development` | How to produce ad creative that converts at performance scale. Hook patterns, format selection, video pacing, variation systems, sequential testing methodology, fatigue detection, brand-voice alignment without conversion dilution, and platform-specific creative norms. Triggers on ad creative, ad ... |
-| `ads-performance-analytics` | How to read paid media dashboards without fooling yourself. Attribution models, platform reporting quirks, multi-platform reconciliation, ROAS vs LTV horizon traps, statistical noise in performance metrics, incrementality testing, and the failure modes that produce expensive lessons. Triggers on ... |
-| `calculator-design` | Designing interactive calculators (ROI calculators, pricing estimators, savings projections, mortgage calculators, custom assessments) that deliver real decision-support value while serving as lead magnets and qualified-traffic generators. Honest about vanity-calculator (no real value), lead-trap... |
-| `chatbot-flow-design` | Designing conversational flows for website chatbots and AI agents. Intent recognition architecture, branching logic, fallback handling, escalation to human, conversation analytics. Honest about scripted-bot (rigid trees, fail edge cases), hallucinating-bot (LLM without structure, makes things up)... |
-| `comparison-tool-design` | Designing side-by-side comparison tools (plan-compare, product-compare, alternative-compare) that help users decide rather than just listing features. Axis selection, default-comparison logic, recommendation discipline. Honest about feature-list-dump (every feature in a row, no decision support),... |
-| `content-and-copy` | Write or edit website copy, blog content, and editorial pieces with attention to voice, structure, and goal. Use this skill whenever the user wants to write an article, draft website copy, edit existing content for clarity or voice, write a blog post, or produce general editorial content. Trigger... |
-| `content-brief-authoring` | How to author a content brief that actually guides a writer (human or AI) to produce a piece that ranks, converts, or both. Per-piece editorial brief: target keyword and cluster, search intent, audience and JTBD, heading structure, entity coverage for AEO/GEO, internal linking strategy, success c... |
-| `content-creator` | Social hooks, scripts, and captions - clear deliverables, no fluff |
-| `content-distribution` | Content distribution as a discipline. Owned channels (newsletter, blog, social), earned channels (PR, syndication, mentions), paid channels (boosted posts, syndication networks), and the channel-fit decisions that distinguish strategic distribution from spam-everywhere. Audience-channel matching,... |
-| `content-migration` | Move content between platforms, domains, or URL structures while preserving SEO equity, user bookmarks, and integrations. Use this skill when planning a CMS migration, replatforming, consolidating sites, changing URL structures, or merging content from multiple sources. Triggers on content migrat... |
-| `content-refresh-system` | Systematic content refresh discipline. Quarterly audits, refresh prioritization (which pieces, when, how deep), refresh-vs-merge-vs-delete decisions, the lifecycle that distinguishes intentional refresh from set-and-forget decay. Builds on the refresh sections of pillar-content-architecture and e... |
-| `content-repurposing` | Cross-format content adaptation. Turning one substantial piece into many derivative formats (blog series, email sequences, social posts, webinars, podcasts, video shorts) without losing the original's value or producing AI-slop variants. The discipline of adaptation per medium rather than mass-bl... |
-| `content-strategy` | Develop a content strategy covering editorial positioning, content pillars, formats, calendar, governance, and topical authority planning. Use this skill whenever the user wants to plan a content program, define content pillars, build an editorial calendar, structure topic clusters, set up conten... |
-| `cro-optimization` | Run conversion rate optimization through hypothesis-driven testing including audit, hypothesis generation, test design, statistical analysis, and rollout decisions. Use this skill whenever the user wants to optimize conversion, run A/B tests, audit a funnel, generate test hypotheses, design exper... |
-| `editorial-qa` | Pre-publish QA framework for content. Brief adherence, voice consistency, fact accuracy, structure and clarity, AI-content audit, SEO and AEO compliance, internal linking and schema validation, QA at scale via sampling, the QA workflow, and the discipline that distinguishes catch-problems QA from... |
-| `email-deliverability` | Make sure email actually reaches inboxes. Use this skill when setting up email authentication (SPF, DKIM, DMARC), diagnosing emails landing in spam, planning a domain reputation strategy, monitoring sender reputation, or hardening against email spoofing. Triggers on email deliverability, SPF, DKI... |
-| `email-sequences` | Design and write email campaigns and sequences including onboarding flows, lifecycle campaigns, transactional emails, newsletters, broadcast sends, and launch and announcement emails. Use this skill whenever the user wants to write email copy, plan an email sequence, design an onboarding drip, or... |
-| `evidence-based-reviews` | Produce honest product reviews and buying guides without fabricated first-hand experience, using disclosed evidence tiers: verified specs, owner-experience synthesis at scale, expert triangulation, and hands-on only when true. Use this skill whenever the user wants to write product reviews or buy... |
-| `funnel-flow-architecture` | Architecting cross-tool conversion flows that match audience and stage. Landing page to lead magnet to nurture sequence to offer to advanced funnels. Honest about silo-funnels (every tool standalone), kitchen-sink-funnels (every audience squeezed through one path), and matched-funnels (architectu... |
-| `interactive-product-tour` | Designing in-product tours, tooltips, and contextual help that teach product capabilities without becoming friction. Trigger logic, tour architecture, contextual placement, completion tracking. Honest about tooltip-spam (visual noise that users develop blindness to), one-and-done (help invisible ... |
-| `landing-page-copy` | Write landing page copy with attention to the hero, value proposition, social proof, objection handling, and conversion-focused CTAs. Use this skill whenever the user wants to write a landing page, sales page, hero section, or any conversion-focused web copy. Triggers on landing page, sales page,... |
-| `landing-pages` | Conversion-oriented page structure, CTA design, above-the-fold optimization, page types, and A/B testing for maximum conversion rates. |
-| `lead-magnet-design` | Designing lead magnets that earn the email. The discipline of building gated content (ebooks, templates, checklists, swipe files, mini-courses, free tools) that delivers genuine standalone value while qualifying the lead and warming them for what comes next. Honest about thin-bait (overpromises, ... |
-| `long-form-content-frameworks` | Patterns for individual long-form content pieces. Case studies, whitepapers, research reports, definitive guides, manifestos, ebooks, long-form tutorials. The structural disciplines that distinguish publication-quality long-form from bloggy-long padding or academic bloat. Different from pillar-co... |
-| `media-asset-management` | Plan and run a media pipeline for images, video, and downloadable assets. Use this skill when designing image storage and delivery, choosing formats (WebP, AVIF), setting up responsive images, picking a video host, organizing a brand asset library, or auditing a slow image pipeline. Triggers on i... |
-| `multi-step-form-design` | Designing forms with multiple steps, progress indicators, conditional logic, and save-and-resume mechanics. The discipline of breaking complex data collection into stages that respect cognitive load while maintaining completion intent. Honest about kitchen-sink-single-page (overwhelms before the ... |
-| `onboarding-wizard-design` | Designing first-run product onboarding wizards that get users to the ah-ha moment without overwhelming them. Step architecture, progressive disclosure, escape hatches, completion incentives, drop-off measurement. Honest about tutorial-overload (dump everything upfront), skip-friendly-empty (skipp... |
-| `paid-media-strategy` | A discipline for running paid media that does not light money on fire. Hypothesis writing for paid spend, channel selection, budget allocation, audience targeting, bid strategy, campaign types, what NOT to spend on, attribution reality, and the failure modes that produce expensive lessons. Trigge... |
-| `pillar-content-architecture` | How to design a content hub that earns topical authority. Pillar topic selection, cluster planning, internal linking architecture, URL structure, pillar and cluster page anatomy, topical authority signals for SEO and AEO/GEO, and the maintenance discipline that distinguishes intentional hubs from... |
-| `product-configurator-design` | Designing build-your-own product configurators (Tesla-style, custom-pricing, plan-builders) with constraint logic, real-time pricing, validation, and save-and-share mechanics. Honest about infinite-options (decision paralysis), canned-bundles-only (no real customization), and guided-configuration... |
-| `programmatic-seo` | How to design and run a programmatic SEO program that produces durable traffic instead of penalty-bait. Data source identification, template design, schema patterns, quality control at scale, internal linking architecture, crawl budget management, AEO/GEO for programmatic pages, refresh disciplin... |
-| `quiz-and-assessment-design` | Designing quizzes, personality assessments, and recommendation tools that segment users into actionable categories rather than generating clicks for clicks' sake. Question architecture, scoring algorithms, result categorization, recommendation mapping, lead capture integration. Honest about click... |
-| `scheduler-and-booking-design` | Designing meeting schedulers and booking experiences that qualify leads, set up calls well, and convert at higher rates than a generic Calendly link. Availability logic, qualification gating, prep automation, follow-up sequencing. Honest about any-time-friction (no qualification, just a booking l... |
-| `seo-aeo-geo` | Optimize content and site structure for AI-driven search experiences including AI overviews, large language model citations, generative answer engines, and AI assistants. Use this skill whenever the user wants to optimize for AI search, get cited by language models, appear in AI overviews, build ... |
-| `seo-audit-orchestration` | Master orchestrator for a full SEO audit suite powered by the Ahrefs MCP. Use this skill when running a comprehensive SEO audit, scoping a quarterly health check, doing pre-acquisition SEO due diligence, or post-migration verification. Triggers on full SEO audit, comprehensive SEO review, SEO hea... |
-| `seo-backlink-audit` | Audit a backlink profile using Ahrefs MCP data: profile health, anchor text distribution, toxic link identification, lost link reclamation, and gap analysis against competitors. Use this skill when reviewing backlink health, scoping a disavow project, recovering from a manual action, planning lin... |
-| `seo-competitor` | Run a competitive SEO analysis comparing the user's site to chosen competitors across SERP overlap, content depth, backlink profiles, technical posture, and brand presence. Use this skill whenever the user wants to analyze competitors, find content gaps, identify backlink opportunities, understan... |
-| `seo-content-audit` | Audit existing content across a site to decide what to keep, update, merge, redirect, or delete. Use this skill whenever the user wants to audit existing content, fix content decay, resolve keyword cannibalization, prune underperforming pages, prioritize content updates, or apply a keep/update/me... |
-| `seo-content-gap-audit` | Audit content gaps and decay using Ahrefs MCP data: missing topics, thin coverage, outdated content, and decaying pages. Use this skill when planning a content roadmap, refreshing a stale catalog, building topical authority, or identifying which existing pages need update versus replacement. Trig... |
-| `seo-expert` | SEO expert workflow for Next.js - Search Console, intent, metadata, JSON-LD, URL hygiene, CWV field data |
-| `seo-keyword` | Run keyword research, classify by search intent, cluster into topical groups, and prioritize for content production. Use this skill whenever the user asks to do keyword research, find target keywords, identify ranking opportunities, classify search intent, build a topical map, or plan a content s... |
-| `seo-keyword-gap-audit` | Find keywords competitors rank for that the target property does not, and prioritize them by opportunity. Uses Ahrefs MCP for keyword and competitor data. Use this skill when planning content investment, identifying quick wins, building a content calendar against a competitor set, or scoping a ma... |
-| `seo-offpage` | Plan and execute off-page SEO including link building, digital PR, brand mentions, citation building, and external authority signals. Use this skill whenever the user wants to build backlinks, plan a digital PR campaign, list local citations, run guest post outreach, develop linkable assets, reco... |
-| `seo-onpage` | Run a comprehensive on-page SEO audit or optimization pass covering title tags, meta descriptions, header structure, content quality, internal links, image optimization, URL hygiene, and on-page schema. Use this skill whenever the user asks to optimize a page, audit on-page SEO, fix titles or met... |
-| `seo-rank-tracking` | Set up and run rank tracking using Ahrefs MCP: pick the right keywords to track, segment them by purpose, set baselines, and define alert thresholds. Use this skill when starting a new tracking project, baselining for a campaign, choosing what to monitor, or building a rank reporting cadence. Tri... |
-| `seo-site-health-audit` | Triage technical SEO findings from Ahrefs Site Audit (and similar crawlers) by SEO impact, not just severity. Use this skill when reviewing crawl results, prioritizing technical fixes, scoping a technical SEO sprint, or after running any site-wide crawl. Triggers on site audit results, technical ... |
-| `seo-technical` | Run a comprehensive technical SEO audit covering crawlability, indexability, rendering, site architecture, structured data, page experience, security, and internationalization. Use this skill whenever the user asks about technical SEO, crawl issues, indexing problems, sitemaps, robots.txt, canoni... |
-| `seo-traffic-diagnosis` | Diagnose organic traffic changes (drops, stalls, or unexpected wins) using Ahrefs MCP plus Search Console data. Use this skill when traffic suddenly dropped, has been flat despite investment, after an algorithm update, after a migration or deploy, or when a competitor seems to be taking share. Tr... |
-| `upgrade-flow-design` | Designing free-to-paid conversion flows for SaaS products. Trigger moments, paywall design, value demonstration, upsell vs downsell, win-back flows, churn prevention. Honest about paywall-everywhere (gates everything aggressively), free-forever-trap (no upgrade path surfaces), and value-triggered... |
-| `website-audit` | Systematic website analysis, relaunch planning, SEO migration, content audit, and post-launch monitoring for data-driven relaunches. |
+| `ads-creative-development` | Создание рекламных креативов, конвертирующих в масштабе: паттерны хуков, выбор форматов, темп видео, системы вариаций, последовательное тестирование, усталость креативов, согласование с голосом бренда и платформенные нормы (Meta, TikTok, LinkedIn). |
+| `ads-performance-analytics` | Чтение дашбордов платной рекламы без самообмана: модели атрибуции, особенности отчётов платформ, сверка мультиплатформ, ловушки горизонта ROAS vs LTV, статистический шум, инкрементальность и дорогие уроки неверной интерпретации. |
+| `calculator-design` | Проектирование интерактивных калькуляторов (ROI, оценщики цен, прогнозы накоплений, ипотечные) с реальной ценностью принятия решений и сбором лидов. Честно о паттернах пустых калькуляторов, ловушек с email и прозрачных инструментов. |
+| `chatbot-flow-design` | Проектирование разговорных флоу для сайтов и AI-агентов: архитектура распознавания намерений, ветвление, обработка фолбэков, эскалация человеку и аналитика диалогов. Честно о скриптовых ботах, галлюцинирующих LLM и структурированных диалогах. |
+| `comparison-tool-design` | Проектирование инструментов сравнения (план-компейр, продукт-компейр), помогающих принять решение, а не просто перечислять фичи: выбор осей, логика сравнения по умолчанию и дисциплина рекомендаций. |
+| `content-and-copy` | Написание или редактирование копирайта сайтов, блогов и редакционных материалов с вниманием к голосу, структуре и цели. Использовать при создании статей, черновиков сайта и правке контента. |
+| `content-brief-authoring` | Создание контент-брифа, который реально ведёт автора к материалу, ранжирующемуся и конвертирующему: целевой ключ и кластер, интент, аудитория и JTBD, структура заголовков, покрытие сущностей, линковка и критерии успеха. |
+| `content-creator` | Соцсети: хуки, сценарии и подписи с чёткими результатами и без воды. |
+| `content-distribution` | Дисциплина распространения контента: собственные, заслуженные и платные каналы; решения о соответствии канала, темпе и стратегии вместо спама повсюду. |
+| `content-migration` | Перенос контента между платформами, доменами или структурами URL с сохранением SEO-веса, закладок и интеграций: миграции CMS, реплатформинг, смена URL, карты редиректов и консолидация сайтов. |
+| `content-refresh-system` | Систематическая дисциплина обновления контента: ежеквартальные аудиты, приоритизация обновлений, решения обновить-объединить-удалить и жизненный цикл, отделяющий намеренный рефреш от затухания по умолчанию. |
+| `content-repurposing` | Кросс-форматная адаптация контента: превращение одного крупного материала во множество производных форматов (серии блога, email-последовательности, посты, вебинары, подкасты, шортсы) без потери ценности оригинала. |
+| `content-strategy` | Разработка контент-стратегии: редакционное позиционирование, контент-пиллары, форматы, календарь, управление и тематический авторитет. Использовать для планирования контент-программы и редакционного календаря. |
+| `cro-optimization` | Оптимизация конверсии через гипотезо-ориентированное тестирование: аудит, генерация гипотез, дизайн экспериментов, статистический анализ и решения о раскатке. Использовать при A/B-тестах, аудите воронок и разборе результатов. |
+| `editorial-qa` | QA-фреймворк перед публикацией контента: соответствие брифу, консистентность голоса, точность фактов, структура и ясность, аудит AI-контента, SEO/AEO-соответствие, внутренние ссылки и схема; контроль качества через выборку. |
+| `email-deliverability` | Обеспечение доставки писем во входящие: SPF, DKIM, DMARC, диагностика попадания в спам, стратегия репутации домена, мониторинг репутации отправителя и защита от спуфинга. |
+| `email-sequences` | Проектирование и написание email-кампаний и последовательностей: онбординг, lifecycle-кампании, транзакционные письма, рассылки, релизные и анонс-письма. |
+| `evidence-based-reviews` | Честные продуктовые обзоры и гайды по покупке без выдуманного опыта: уровни доказательств (проверенные спецификации, синтез опыта владельцев, экспертный кросс-чек, реальное тестирование) и правила схемы Review. |
+| `funnel-flow-architecture` | Архитектура кросс-инструментальных конверсионных воронок под аудиторию и этап: лендинг, лид-магнит, nurture-последовательность, оффер и продвинутые воронки. Честно о силосных, всеядных и согласованных воронках. |
+| `interactive-product-tour` | Проектирование внутрипродуктовых туров, подсказок и контекстной помощи без превращения в трение: логика триггеров, архитектура тура, контекстное размещение и отслеживание завершения. |
+| `landing-page-copy` | Копирайт лендингов: герой, ценностное предложение, социальное доказательство, обработка возражений и конверсионные CTA. |
+| `landing-pages` | Конверсионная структура страниц, дизайн CTA, оптимизация первого экрана, типы страниц и A/B-тестирование для максимальной конверсии. |
+| `lead-magnet-design` | Проектирование лид-магнитов, заслуживающих email: ebook, шаблоны, чек-листы, мини-курсы и бесплатные инструменты с реальной самостоятельной ценностью и квалификацией лида. |
+| `long-form-content-frameworks` | Паттерны длинных форм контента: кейсы, вайтпейперы, исследовательские отчёты, гайды, манифесты, ebook и длинные туториалы. Структурные дисциплины публикационного качества. |
+| `media-asset-management` | Планирование и ведение пайплайна медиа: хранилище и доставка изображений, форматы (WebP, AVIF), адаптивные изображения, хостинг видео, библиотека бренда и аудит медленных пайплайнов. |
+| `multi-step-form-design` | Проектирование многошаговых форм: прогресс, условная логика и сохранение-и-продолжить. Дисциплина разбиения сложного сбора данных на этапы с уважением к когнитивной нагрузке. |
+| `onboarding-wizard-design` | Проектирование онбординг-визардов первого запуска, ведущих к моменту aha без перегруза: архитектура шагов, прогрессивное раскрытие, запасные выходы, стимулы завершения и измерение отвала. |
+| `paid-media-strategy` | Дисциплина платной рекламы без сжигания бюджета: гипотезы расходов, выбор каналов, распределение бюджета, таргетинг, стратегия ставок, типы кампаний, реальность атрибуции и дорогие уроки. |
+| `pillar-content-architecture` | Проектирование контент-хаба, зарабатывающего тематический авторитет: выбор пиллар-тем, кластеры, внутренняя линковка, структура URL, анатомия страниц и сигналы тематического авторитета для SEO и AEO/GEO. |
+| `product-configurator-design` | Проектирование конфигураторов продукта (в стиле Tesla, кастомные цены, построители планов): логика ограничений, цены в реальном времени, валидация и механики сохранить-и-поделиться. |
+| `programmatic-seo` | Проектирование и ведение программы программного SEO с устойчивым трафиком вместо штрафной приманки: источники данных, шаблоны, схемы, контроль качества в масштабе, линковка, crawl budget и AEO/GEO для программных страниц. |
+| `quiz-and-assessment-design` | Проектирование квизов, личностных оценок и рекомендательных инструментов, сегментирующих пользователей на практические категории: архитектура вопросов, алгоритмы скоринга, категоризация результатов и интеграция сбора лидов. |
+| `scheduler-and-booking-design` | Проектирование планировщиков встреч и бронирований, которые квалифицируют лидов и готовят звонки лучше обычной ссылки Calendly: логика доступности, квалификационные гейты, автоматизация подготовки и последующие последовательности. |
+| `seo-aeo-geo` | Оптимизация контента и структуры сайта под ИИ-поиск: AI-овервью, цитирование языковыми моделями, генеративные поисковики и AI-ассистенты, llms.txt и структура для AI-извлечения. |
+| `seo-audit-orchestration` | Главный оркестратор полного набора SEO-аудитов на Ahrefs MCP: комплексный SEO-аудит, ежеквартальная проверка здоровья, предпоглощенческий due diligence и постмиграционная верификация. |
+| `seo-backlink-audit` | Аудит профиля ссылок по данным Ahrefs MCP: здоровье профиля, распределение анкоров, токсичные ссылки, возврат потерянных ссылок и gap-анализ против конкурентов. |
+| `seo-competitor` | Конкурентный SEO-анализ: пересечение SERP, глубина контента, профили ссылок, техническая позиция и присутствие бренда против выбранных конкурентов, контент-гэпы и возможности ссылок. |
+| `seo-content-audit` | Аудит существующего контента сайта: что сохранить, обновить, объединить, редиректнуть или удалить; борьба с затуханием контента и каннибализацией ключей. |
+| `seo-content-gap-audit` | Аудит контент-гэпов и затухания по данным Ahrefs MCP: отсутствующие темы, тонкое покрытие, устаревший контент и страницы в упадке. |
+| `seo-expert` | Воркфлоу эксперта SEO для Next.js: Search Console, интент, метаданные, JSON-LD, гигиена URL, данные CWV из поля. |
+| `seo-keyword` | Ключевые слова: исследование, классификация по поисковому интенту, кластеризация по темам и приоритизация для производства контента. |
+| `seo-keyword-gap-audit` | Поиск ключей, по которым ранжируются конкуренты, а целевой сайт нет, и приоритизация по возможностям. Использует Ahrefs MCP. |
+| `seo-offpage` | Планирование и выполнение внешнего SEO: наращивание ссылок, цифровой PR, упоминания бренда, локальные цитаты, гостевые посты, линкабельные активы и восстановление потерянных ссылок. |
+| `seo-onpage` | Комплексный on-page SEO-аудит или оптимизация: title-теги, meta-описания, структура заголовков, качество контента, внутренние ссылки, изображения, URL и on-page схема. |
+| `seo-rank-tracking` | Настройка и ведение отслеживания позиций через Ahrefs MCP: выбор ключей, сегментация по целям, базовые линии и пороги алертов. |
+| `seo-site-health-audit` | Триаж технических находок из Ahrefs Site Audit по SEO-влиянию, а не только серьёзности: обзор результатов краула и приоритизация технических исправлений. |
+| `seo-technical` | Комплексный технический SEO-аудит: краулируемость, индексируемость, рендеринг, архитектура сайта, структурированные данные, page experience, безопасность и интернационализация. |
+| `seo-traffic-diagnosis` | Диагностика изменений органического трафика (падений, плато или неожиданных взлётов) по данным Ahrefs MCP и Search Console: после алго-апдейта, миграции, деплоя или потери позиций конкуренту. |
+| `upgrade-flow-design` | Проектирование конверсионных флоу free-to-paid для SaaS: моменты триггеров, дизайн пейволов, демонстрация ценности, upsell vs downsell, win-back флоу и предотвращение оттока. |
+| `website-audit` | Систематический анализ сайта, планирование релонча, SEO-миграция, аудит контента и постзапусковый мониторинг для перезапусков на данных. |
 
 ### Продукт, аналитика и бизнес
 
 | Скил | Назначение |
 |------|------------|
-| `after-action-report` | Run a structured after-action review (postmortem, retrospective) on a launch, incident, or completed project to capture timeline, root cause analysis, contributing factors, and actionable lessons. Use this skill whenever the user wants to run a postmortem, retrospective, AAR, or after-action revi... |
-| `analytics-strategy` | Design measurement frameworks including event taxonomy, KPI hierarchy, dashboard architecture, attribution models, and analytics implementation strategy. Use this skill whenever the user wants to plan analytics, design dashboards, build event taxonomies, define KPIs, set up tracking, or audit exi... |
+| `after-action-report` | Структурированный разбор после действия (постмортем, ретроспектива) запуска, инцидента или завершённого проекта: таймлайн, анализ корневых причин, способствующие факторы и практические уроки. Использовать для любого постмортема, ретро или разбора прошлого события. |
+| `analytics-strategy` | Проектирование систем измерений: таксономия событий, иерархия KPI, архитектура дашбордов, модели атрибуции и стратегия внедрения аналитики. Использовать при планировании аналитики, проектировании дашбордов, настройке трекинга или аудите измерений. |
 | `ask-nodumb` | Помогает разобрать продуктовую или UX-задачу до проектирования решения: увидеть скрытое предположение, отделить образ продукта от модели и технологии, найти наиболее ценный вопрос или следующий шаг. Использовать, когда нужно придумать или обсудить фичу, экран, флоу, редизайн, концепт, принцип инт... |
-| `autoplan` | Automated full review pipeline skill. Use when the user wants to run a complete plan review in one command, automatically chain CEO review then design review then engineering review then DX review, surface only the decisions that need human taste judgment, or compress the full planning workflow i... |
-| `beta-program-management` | Running closed and open betas that produce real signal. Beta participant selection, structured feedback collection, beta-to-GA decision criteria, and the difference between soft-launch (no structure, no signal), kitchen-sink (everyone in, no actionable feedback), and structured beta (calibrated c... |
-| `changelog-discipline` | Write and maintain a CHANGELOG that records every completed code change without becoming a commit dump. Use after any code change in a project that has a changelog, when setting one up, when preparing a release, or when the user asks why something was built this way. Keep mechanical entries brief... |
-| `customer-journey` | Personas, touchpoint mapping, phase models, onboarding, customer retention, and data-driven journey analysis for user-centered web design. |
-| `dependency-management` | Manage third-party libraries, runtimes, and SaaS dependencies. Use this skill when setting an update cadence, responding to security advisories, dealing with deprecated dependencies, evaluating new dependencies, auditing what's installed, or unblocking a dependency upgrade. Triggers on dependency... |
-| `dependency-migrations` | Major version upgrades for React Next and toolchain - ordered steps rollback and test gates |
-| `design-map` | Маппинг решений из дизайн-документа на фактическое состояние кодовой базы. |
-| `devex-engineer` | Developer experience audit and improvement skill. Use when the user wants to review their API, CLI, SDK, or docs from a developer perspective, benchmark their onboarding flow against competitors, measure Time to Hello World (TTHW), trace friction points step-by-step, or improve the developer expe... |
-| `discovery-research-synthesis` | Turning research artifacts into actionable PM insight. Customer interviews, user research notes, support ticket reviews, sales call transcripts, survey data, in-app feedback, all synthesized into the decisions they are meant to inform. The discipline of moving from raw discovery data to clear pro... |
+| `autoplan` | Автоматизированный полный пайплайн ревью плана одной командой: CEO-ревью, затем дизайн-, инженерное и DX-ревью; показывает только решения, требующие вкуса человека, или сжимает весь процесс в один структурированный вывод. |
+| `beta-program-management` | Проведение закрытых и открытых бета-тестов с реальным сигналом: отбор участников, структурированный сбор обратной связи, критерии перехода бета-в-GA и разница между soft-launch, kitchen-sink и структурированной бетой. |
+| `changelog-discipline` | Ведение CHANGELOG, фиксирующего каждое завершённое изменение кода, без превращения в свалок коммитов. Использовать после любых правок в проекте с ченджлогом, при его создании, подготовке релиза или вопросах о причинах архитектуры. Записи краткими; причины и отвергнутые альтернативы сохранять для ... |
+| `customer-journey` | Персоны, картирование точек контакта, модели фаз, онбординг, удержание и аналитика пути клиента на данных для человекоцентричного веб-дизайна. |
+| `dependency-management` | Управление сторонними библиотеками, рантаймами и SaaS-зависимостями: каденция обновлений, уведомления безопасности, депрекации, аудит установленного и разблокировка апгрейдов. |
+| `dependency-migrations` | Мажорные обновления React, Next и тулчейна: упорядоченные шаги, откат и тестовые гейты. |
+| `design-map` | Сопоставление решений из дизайн-документа с фактическим состоянием кода: таблица соответствий спроектировано/реализовано/расходится для проектов, где документация и код лежат в одном репозитории. |
+| `devex-engineer` | Аудит и улучшение опыта разработчика: ревью API, CLI, SDK и документации, бенчмаркинг онбординга против конкурентов, измерение Time to Hello World и поиск точек трения. |
+| `discovery-research-synthesis` | Превращение исследовательских артефактов в практические инсайты продакт-менеджера: интервью, заметки юзер-исследований, тикеты поддержки, записи звонков, опросы и ин-апп обратная связь в решения. |
 | `edge-hunt` | Находит неочевидные корнеры задачи через пересечение состояний, данных, порядка действий, сбоев и параллельных изменений; превращает их в ожидаемое поведение и проверяемые сценарии. Использовать перед реализацией или ревью нетривиальной продуктовой, UX- или технической задачи; при изменении state... |
-| `experimentation-analytics` | How to read experiment results without fooling yourself. Confidence intervals, p-values, multiple testing, sequential testing, CUPED, heterogeneous treatment effects, ratio metrics, network effects, dashboard reconciliation, and the interpretation failures that produce confidently wrong shipping ... |
-| `experimentation-platform-orchestrator` | A platform decision framework for experimentation. When to use Statsig vs PostHog vs GrowthBook vs Optimizely vs Amplitude vs Eppo vs Kameleoon. How to migrate between them. How to coordinate when multi-platform is genuinely warranted. The decisions that compound for years and the ones you can de... |
-| `experiment-design` | A discipline for designing experiments (A/B tests, multivariate, holdouts) so the results actually answer the question you asked. Hypothesis writing, sample size, duration, segment analysis, running discipline, matching a result to a pre-committed decision rule, and the common failure modes that ... |
-| `feature-launch-playbook` | The operational playbook for launching a feature well. Positioning, internal alignment, customer comms, sales enablement, support readiness, rollout strategy, monitoring with pre-defined rollback triggers, post-launch measurement against spec hypotheses, and the discipline that distinguishes ship... |
-| `forward-deployment-engineer` | Expert guidance for Forward Deployment Engineers (FDEs) — customer-facing technical specialists who deploy, integrate, configure, and operationalize complex software systems at customer sites. Use when the user asks about customer onboarding, on-site deployment, system integration, customer-facin... |
-| `internal-comms` | Write clear, well-structured internal communications — incident reports, post-mortems, launch announcements, team updates, all-hands summaries, 3P updates (Progress/Plans/Problems), project status updates, leadership briefings, and FAQs. Use when the user needs to communicate something to their t... |
-| `journey-mapping` | Build customer journey maps and service blueprints that visualize the end-to-end user experience including touchpoints, emotions, friction, and underlying systems. Use this skill whenever the user wants to map a customer journey, build a service blueprint, identify friction across an experience, ... |
-| `jtbd-framing` | The Jobs-to-be-Done framework as applied product methodology. Job statements, struggling moments, hire and fire criteria, the difference between feature-thinking and job-thinking. Honest about where JTBD adds clarity (discovery, prioritization, positioning) and where it becomes performative ritua... |
-| `launch-runbook` | Plan and execute a launch runbook covering pre-launch verification, go-live procedures, DNS cutover, post-launch monitoring, and rollback procedures. Use this skill whenever the user is preparing to launch a website or product, planning a DNS cutover, building a go-live checklist, or executing a ... |
+| `experimentation-analytics` | Чтение результатов экспериментов без самообмана: доверительные интервалы, p-значения, множественное и последовательное тестирование, CUPED, неоднородные эффекты и ошибки интерпретации при решениях ship/kill. |
+| `experimentation-platform-orchestrator` | Фреймворк выбора платформы экспериментов: Statsig vs PostHog vs GrowthBook vs Optimizely vs Amplitude vs Eppo vs Kameleoon, миграция между ними и координация мультиплатформ. |
+| `experiment-design` | Дисциплина проектирования экспериментов (A/B, multivariate, holdouts), чтобы результаты реально отвечали на вопрос: гипотезы, размер выборки, длительность, сегментный анализ, дисциплина прогона и предрешённые правила решений. |
+| `feature-launch-playbook` | Операционный плейбук хорошего запуска фичи: позиционирование, внутреннее выравнивание, коммуникации с клиентами, готовность поддержки, стратегия раскатки, мониторинг с триггерами отката и измерение после запуска. |
+| `forward-deployment-engineer` | Экспертные рекомендации для Forward Deployment Engineers: онбординг клиентов, деплой на месте, интеграция систем, клиентская техническая поставка, PoC, конфигурация решений и техаккаунт-менеджмент. |
+| `internal-comms` | Ясные и хорошо структурированные внутренние коммуникации: отчёты об инцидентах, постмортемы, анонсы запусков, апдейты команд, сводки all-hands, статусы проектов и брифинги руководства. |
+| `journey-mapping` | Построение карт пути клиента и сервис-блюпринтов: точки контакта, эмоции, трение и поддерживающие системы для сквозного опыта. |
+| `jtbd-framing` | Jobs-to-be-Done как прикладная продуктовая методология: формулировки задач, моменты борьбы, критерии найма и увольнения, разница мышления фичами и задачами и честность о том, где JTBD реально добавляет ясности. |
+| `launch-runbook` | Планирование и выполнение ранбука запуска: предрелизная проверка, процедуры go-live, переключение DNS, постзапусковый мониторинг и процедуры отката. |
 | `nodumb` | Проверить способ решения до того, как цена ошибки выросла. Использовать: перед нетривиальной фичей или дорогой развилкой; когда запрос описывает готовое решение вместо проблемы; при постановке нетривиальной задачи или фиксации предполагаемой причины в трекере; при переносе внешнего факта, исследо... |
-| `office-hours` | Pre-code ideation and startup validation skill. Use when the user wants to validate a product idea, stress-test assumptions before building, run a YC-style office hours session, brainstorm feature alternatives, or needs forcing questions that challenge their thinking before writing a line of code. |
-| `okr-design` | OKR design as actually shipped, not as conference-talk theory. Outcome statements that drive decisions, key results that measure the right thing, scoring discipline, mid-quarter recalibration, and the difference between sandbagged OKRs (always 100%) and aspirational OKRs (always 30%) and stretch ... |
-| `plan-ceo-review` | CEO and founder-lens strategic plan review. Use when the user wants to evaluate a feature or product idea from a business perspective, challenge scope, find the 10-star product inside the request, assess user value and competitive moat, or run a strategic review before engineering begins. |
-| `plan-design-review` | Design plan review skill — rate and improve a UI design plan before implementation. Use when the user has a plan, wireframe, or design description for a UI feature and wants a senior designer to rate each design dimension 0-10, explain what a 10 looks like, detect AI slop, and edit the plan to re... |
-| `plan-eng-review` | Engineering plan review skill — architecture, data flow, edge cases, and test plan before coding begins. Use when the user has a feature plan or design doc and needs an engineering manager to stress-test the technical approach, surface hidden assumptions, define the data model, identify failure m... |
-| `pm-spec-writing` | Translate ideas, feature requests, or vague concepts into specific, actionable dev briefs. Use this skill whenever the user has an idea they want to build, a feature to spec out, a bug to file, a project to scope, or needs to convert a half-formed idea into a clear implementation brief. Triggers ... |
-| `product-analytics-setup` | How to actually instrument product analytics correctly. Event taxonomy, property design, naming conventions, schema versioning, identity stitching, funnel design, retention cohorts, North Star metric selection, dashboard hygiene, instrumentation debt, and the failure modes that produce data nobod... |
-| `product-engineer` | Expert product engineering guidance for senior engineers and tech leads. Use when the user asks about feature planning, MVP design, user flows, tradeoff analysis, or technical decisions that intersect with product strategy. |
-| `release-engineer` | Structured release and ship workflow skill. Use when the user wants to ship code, create a PR, merge to main, deploy to production, run pre-ship checks, bootstrap a test framework, or needs a repeatable release process from final review to live deployment. |
-| `retro-engineer` | Engineering retrospective skill for continuous improvement. Use when the user wants to run a weekly or sprint retro, review shipping velocity, analyse test health trends, identify growth opportunities, get per-person breakdowns, or run a cross-project retrospective across all their AI tools and r... |
-| `roadmap-planning` | Build a multi-quarter roadmap from a backlog of ideas, requests, and ongoing initiatives. Use this skill when planning the next quarter, sequencing dependent work, balancing build vs improve vs maintain, or making the case for what NOT to do. Triggers on roadmap, quarterly planning, what should w... |
-| `stakeholder-communication` | Communicate effectively with stakeholders across functions and seniority levels. Use this skill when writing status updates, preparing executive reviews, sharing technical decisions with non-technical audiences, managing up, communicating bad news, or designing the communication cadence for a pro... |
-| `team-onboarding-playbook` | Design a structured onboarding experience that gets new team members productive in 30, 60, and 90 days. Use when a new hire is joining, when contractors or agency partners need to ramp up, when an existing team is restructuring and members are switching focus, or when current onboarding feels cha... |
-| `usability-testing` | Plan and run usability tests on existing or prototype designs including test design, task scripts, moderation, observation, and findings synthesis. Use this skill whenever the user wants to test usability, run a moderated test, run an unmoderated test, validate a design, find usability issues, or... |
-| `user-feedback-aggregation` | Collecting and synthesizing user feedback across channels (support tickets, NPS, in-app feedback, sales calls, social mentions, customer councils) into a continuous signal that informs product decisions. The triage discipline that distinguishes loudest-voice (whoever complains most wins) from ave... |
-| `ux-design` | User research, interaction patterns, information architecture, and UX methods. Defines the five-plane model, user flows, UX laws, and validation methods for user-centered digital products. |
-| `ux-research` | Plan and execute user research including research planning, recruiting, interview design, qualitative synthesis, and translating findings into product decisions. Use this skill whenever the user wants to plan user research, design interviews, recruit participants, conduct discovery, run formative... |
-| `vendor-evaluation` | Evaluate, select, and contract with vendors and SaaS tools. Use this skill when comparing alternatives, running an RFP, scoring vendors against criteria, negotiating contracts, planning a switch, or assessing a vendor's risk. Triggers on vendor evaluation, RFP, vendor selection, build vs buy, Saa... |
+| `office-hours` | Идеи до кода и валидация стартапов: проверка продуктовой идеи, стресс-тест допущений до сборки, YC-style сессия, брейншторм альтернатив и форсирующие вопросы. |
+| `okr-design` | OKR как реально внедряется, а не как в теории: формулировки результатов, ключевые результаты, дисциплина скоринга, перекалибровка в середине квартала и разница между заниженными, аспирационными и stretch-OKR. |
+| `plan-ceo-review` | Стратегическое ревью плана с позиции CEO и основателя: оценка фичи или идеи с бизнес-стороны, вызов скоупа, поиск продукта 10/10 внутри запроса, ценность для пользователя и конкурентный ров. |
+| `plan-design-review` | Ревью плана дизайна: оценка каждого дизайн-измерения от 0 до 10, объяснение, как выглядит десятка, выявление AI-слопа и правка плана до написания кода. |
+| `plan-eng-review` | Инженерное ревью плана: архитектура, потоки данных, крайние случаи и план тестов до начала кодинга. Стресс-тест технического подхода, скрытые допущения, модель данных и режимы отказа. |
+| `pm-spec-writing` | Превращение идей, запросов фич и расплывчатых концепций в конкретные исполняемые дев-брифы: фича-спек, PRD, user story, критерии приёмки и разбиение на задачи. |
+| `product-analytics-setup` | Правильная инструментация продуктовой аналитики: таксономия событий, дизайн свойств, конвенции именования, версионирование схем, склейка идентичности, воронки, когорты удержания и выбор North Star метрики. |
+| `product-engineer` | Экспертные рекомендации по продуктовой инженерии для старших инженеров: планирование фич, дизайн MVP, пользовательские потоки, анализ трейдоффов и технические решения на стыке с продуктовой стратегией. |
+| `release-engineer` | Структурированный воркфлоу релиза и поставки: шип кода, создание PR, мердж в main, деплой в продакшн, предрелизные проверки, бутстрап тестового фреймворка и повторяемый процесс релиза. |
+| `retro-engineer` | Инженерная ретроспектива для постоянного улучшения: еженедельное или спринтовое ретро, обзор скорости поставки, анализ трендов здоровья тестов, возможности роста и кросс-проектные ретроспективы. |
+| `roadmap-planning` | Многоквартальный роадмап из бэклога идей, запросов и текущих инициатив: секвенирование зависимой работы, баланс build/improve/maintain и обоснование, чего НЕ делать. |
+| `stakeholder-communication` | Эффективная коммуникация со стейкхолдерами разных функций и уровней: статус-апдейты, исполнительные обзоры, технические решения для нетехнической аудитории, управление вверх и каденция коммуникаций проекта. |
+| `team-onboarding-playbook` | Структурированный онбординг новых членов команды за 30, 60 и 90 дней: новые сотрудники, подрядчики, реструктуризация команд, захват племенных знаний и снижение потерь в первые 90 дней. |
+| `usability-testing` | Планирование и проведение юзабилити-тестов существующих и прототипных дизайнов: дизайн теста, сценарии задач, модерация, наблюдение и синтез находок. |
+| `user-feedback-aggregation` | Сбор и синтез обратной связи пользователей по каналам (тикеты поддержки, NPS, ин-апп, звонки продаж, соцсети, советы клиентов) в непрерывный сигнал для продуктовых решений: дисциплина триажа вместо громкого голоса или усреднённого шума. |
+| `ux-design` | Юзер-исследования, паттерны взаимодействия, информационная архитектура и UX-методы: модель пяти плоскостей, пользовательские потоки, UX-законы и методы валидации человекоцентричных цифровых продуктов. |
+| `ux-research` | Планирование и проведение юзер-исследований: план, рекрутинг, дизайн интервью, качественный синтез и перевод находок в продуктовые решения. |
+| `vendor-evaluation` | Оценка, выбор и контрактинг вендоров и SaaS-инструментов: сравнение альтернатив, RFP, скоринг по критериям, переговоры по контрактам, планирование перехода и оценка рисков вендора. |
 
 ### Бренд и креатив
 
 | Скил | Назначение |
 |------|------------|
-| `art-direction` | Direct visual and creative work for campaigns, photography, illustration, video, and branded experiences. Use this skill whenever the user wants to brief a photographer, direct illustrators, plan a creative campaign, develop visual concepts, or evaluate creative work for fit. Triggers on art dire... |
-| `brand-archetype-system` | Apply pre-composed aesthetic archetype defaults to jumpstart brand design work covering color, typography, layout, voice, and imagery direction. Use this skill whenever the user wants a starting point for brand visual and verbal direction, references a brand they want to design near (for example ... |
-| `brand-discovery` | Run upstream brand discovery covering audience research, competitive landscape, category dynamics, problem space, and positioning territory exploration. Use this skill at the very start of a brand or website project when the user needs to understand who they're for, who they compete with, what th... |
-| `brand-guidelines` | Apply brand voice, tone, colors, typography, and visual style consistently across any artifact. Use when the user wants to ensure a document, presentation, email, website, or any content matches their brand identity — including color palette, font choices, tone of voice, imagery guidelines, and d... |
-| `brand-ideation` | Generate, evaluate, and narrow brand concepts during early ideation including positioning territories, naming candidates, mood directions, and narrative angles. Use this skill whenever the user is in the early phase of brand creation, exploring brand directions, brainstorming names, building mood... |
-| `brand-identity` | Design or evaluate a brand visual identity system covering logo, color, typography, imagery direction, iconography, and motion principles. Use this skill whenever the user wants to design a logo, build a visual identity, define brand colors, choose brand typography, develop iconography, plan bran... |
-| `branding-identity` | Brand strategy, visual identity, positioning, corporate design, portfolio presentation, and consistent brand management across all digital touchpoints. |
-| `brand-style-guide` | Build or audit a comprehensive brand style guide that documents the full brand system including story, logo system, color, typography, imagery, voice, applications, and dos/don'ts. Use this skill whenever the user wants to create brand guidelines, document an existing brand, build a brand book, a... |
-| `brand-voice` | Develop or document a complete brand voice and tone system covering voice attributes, tone shifts by context, vocabulary preferences, grammar rules, and copy examples. Use this skill whenever the user wants to define how a brand sounds, write a voice and tone document, audit existing copy for voi... |
-| `creative-brief` | Create or refine a creative brief that bridges discovery and execution. Use this skill whenever the user is starting a new project, kicking off a website, beginning a brand build or redesign, briefing a designer or developer or AI agent, or trying to align a team before building. Triggers on crea... |
-| `creative-brief-selector` | Produce a creative brief grounded in live reference sites and deliberately distinct from existing demos, for any new brand build. Composes with brand-archetype-system and creative-direction. Use this skill at the start of any brand or microsite build when the result needs to land in a specific ae... |
-| `creative-direction` | Walk the user through four directional axes (tone register, aesthetic philosophy, audience relationship, sensory ambition) and produce a structured aesthetic brief that downstream content, copy, design, and art-direction skills consume as required input. The aesthetic depth layer, distinct from `... |
-| `integration-orchestrator` | Generate a phased delivery orchestration plan for creative-direction-driven work: which skills run when, what locks at which gate, how handoffs occur, and how the cadence implements in the team's tools (Jira, Linear, Notion, Figma, GitHub) with AI agents via MCP and CLI. A temporal map of phases,... |
-| `logo-design` | Generate logo variants for a brand, producing multiple production-grade marks across different architectures (wordmark, lockup, symbol-only, letterform-as-symbol, monogram) with rationale, application specs, and decision-ready presentation. Distinct from `brand-identity`, which produces the compl... |
+| `art-direction` | Арт-дирекшн визуальных и творческих работ: брифы для фотографов и иллюстраторов, кампании, видеоролики и брендированные впечатления. Использовать, когда нужно спланировать кампанию, оценить креатив на соответствие или разработать визуальные концепции. |
+| `brand-archetype-system` | Применение готовых эстетических архетипов для старта бренд-дизайна: цвет, типографика, композиция, голос и направление образов. Использовать, когда нужна отправная точка бренда или дизайн "в стиле" известных брендов. |
+| `brand-discovery` | Апстрим-исследование бренда: аудитория, конкурентный ландшафт, динамика категории, проблемное пространство и позиционирование. Использовать в самом начале бренд- или веб-проекта, когда входные данные ещё неясны. |
+| `brand-guidelines` | Последовательное применение голоса, тона, цветов, типографики и визуального стиля бренда в любом артефакте: документы, презентации, письма, сайты. Использовать, когда пользователь говорит "сделай в стиле бренда" или делится гайдлайнами. |
+| `brand-ideation` | Генерация, оценка и сужение бренд-концепций на ранней стадии: территории позиционирования, кандидаты названий, направления настроения и нарративные углы. Использовать в начале создания бренда, при брейншторме названий и мудбордов. |
+| `brand-identity` | Проектирование или оценка визуальной айдентики бренда: логотип, цвет, типографика, образы, иконография и принципы motion. Использовать при создании логотипа, построении визуальной айдентики, выборе цветов и шрифтов бренда. |
+| `branding-identity` | Бренд-стратегия, визуальная айдентика, позиционирование, корпоративный дизайн, презентация портфолио и последовательное управление брендом на всех цифровых точках контакта. |
+| `brand-style-guide` | Создание или аудит полного бренд-гайда: история, система логотипа, цвет, типографика, образы, голос, применение и правила "можно/нельзя". Использовать для брендбуков, документирования бренда и передачи дизайнерам и разработчикам. |
+| `brand-voice` | Разработка или документирование системы голоса и тона бренда: атрибуты голоса, сдвиги тона по контексту, словарные предпочтения, грамматика и примеры текстов. Использовать для определения звучания бренда, аудита копирайта и обучения команды голосу. |
+| `creative-brief` | Создание или уточнение креативного брифа, связывающего исследование и исполнение. Использовать при старте проекта, брифинге дизайнера/разработчика/ИИ-агента и выравнивании команды перед сборкой. |
+| `creative-brief-selector` | Создание креативного брифа на основе живых референс-сайтов и намеренно отличного от существующих демо для нового бренда. Комбинируется с brand-archetype-system и creative-direction. Использовать в начале любого бренд-билда. |
+| `creative-direction` | Проведение по четырём осям направления (тон, эстетическая философия, отношения с аудиторией, сенсорные амбиции) и создание структурированного эстетического брифа для нижестоящих контентных, копирайт, дизайн и арт-дирекшн скилов. |
+| `integration-orchestrator` | Создание поэтапного плана оркестрации поставки для работы, управляемой creative-direction: какие скилы когда запускаются, что фиксируется на каком гейте, как происходят передачи и как каденция реализуется в инструментах команды. |
+| `logo-design` | Генерация вариантов логотипа для бренда: вордмарк, монограмма, символ, буквенный знак с обоснованием и продакшн-спецификациями (SVG, одноцветный, реверс). |
 
 ### Документы и офис
 
 | Скил | Назначение |
 |------|------------|
-| `ai-content-collaboration` | How humans and AI compose in content workflows. Where AI legitimately participates, where humans must own, hybrid workflow patterns, voice ownership preservation, the AI slop problem, disclosure and transparency, team calibration, and the ethics of intellectually honest AI-assisted content produc... |
-| `ai-design-workflow` | AI tool integration into the design process, structured prompting for designers, creative AI usage with clear boundaries, and review workflows. |
-| `doc-coauthoring` | Structured co-authoring workflow for PRDs, design docs, RFCs, decision docs, proposals, and any substantial written document. Use when the user wants to write a PRD, design doc, RFC, decision doc, one-pager, proposal, technical spec, or any structured document where quality and completeness matte... |
-| `documentation-strategy` | Design and run a documentation system for a team or product. Use this skill when planning what to document, choosing a documentation tool, organizing existing docs, fixing stale documentation, designing a maintenance cadence, or scoping technical writing work. Triggers on documentation, docs, tec... |
-| `pdf` | Read, extract, create, merge, split, and manipulate PDF files. Use whenever a .pdf file is involved — extracting text or tables from a PDF, creating a new PDF from content or data, merging multiple PDFs, splitting a PDF into pages, rotating pages, adding watermarks, filling PDF forms, encrypting ... |
-| `pptx` | Create, edit, read, and design PowerPoint presentations (.pptx). Use whenever a .pptx file is involved — creating slide decks, pitch decks, or stakeholder presentations; reading or extracting content from an existing .pptx; editing or updating slides; building from a template. Trigger on "deck", ... |
-| `skill-creation-walkthrough` | Step-by-step guide for creating your own Claude Skills, from deciding whether a skill is the right tool to writing the SKILL.md file, structuring reference material, and making it trigger reliably. Use when you want to package a workflow, framework, or repeated task into a reusable Skill, when an... |
-| `skill-creator` | Author SkillCodex SKILL.md - outcomes, dual GitHub+npm format, safety metadata |
-| `spec-author` | Turn vague intent into a precise, executable specification. Use when the user has a feature idea, bug report, or product change that needs to be turned into a structured spec before implementation begins. Also use when creating GitHub issues, writing technical requirements, or producing implement... |
-| `technical-writer` | Write, structure, and maintain all forms of technical documentation — READMEs, API docs, runbooks, architecture decision records (ADRs), changelogs, onboarding guides, and user manuals. Use when the user asks to write or improve documentation, create a README, document an API, write a runbook, pr... |
-| `write-comments` | Написание, добавление и ревью комментариев в коде. |
-| `xlsx` | Create, read, edit, and analyse Excel spreadsheet files (.xlsx, .xlsm, .xltx, .csv, .tsv). Use whenever a spreadsheet file is the primary input or output — adding columns, computing formulas, formatting cells, building financial models, cleaning messy data, extracting tables, creating charts, or ... |
+| `ai-content-collaboration` | Как люди и ИИ совместно работают в контент-процессах: где ИИ легитимно участвует, где владение должно оставаться у человека, гибридные воркфлоу, сохранение голоса, проблема AI-слопа, прозрачность и этика честного контента при участии ИИ. |
+| `ai-design-workflow` | Интеграция ИИ-инструментов в дизайн-процесс, структурированный промптинг для дизайнеров, творческое использование ИИ с чёткими границами и процессы ревью. |
+| `doc-coauthoring` | Структурированный воркфлоу совместного написания PRD, дизайн-доков, RFC, документов решений и предложений: сбор контекста, пошаговая доводка разделов и проверка на читателе. |
+| `documentation-strategy` | Проектирование и ведение системы документации для команды или продукта: что документировать, выбор инструментов, организация, борьба с устареванием и каденция сопровождения. |
+| `pdf` | Чтение, извлечение, создание, слияние, разделение и обработка PDF-файлов: текст и таблицы, создание и слияние, поворот страниц, водяные знаки, формы, шифрование, извлечение изображений и OCR. |
+| `pptx` | Создание, редактирование, чтение и дизайн презентаций PowerPoint (.pptx): дека слайдов, питч-деки, презентации стейкхолдеров, правка слайдов и сборка из шаблона. |
+| `skill-creation-walkthrough` | Пошаговый гайд по созданию собственных Claude Skills: от решения, нужен ли скил, до написания SKILL.md, структуры справочных материалов и надёжных триггеров. Использовать, чтобы упаковать воркфлоу в переиспользуемый скил, починить не срабатывающий скил или опубликовать скил. |
+| `skill-creator` | Создание SkillCodex SKILL.md: результаты, двойной формат GitHub+npm, метаданные безопасности. |
+| `spec-author` | Превращение расплывчатого намерения в точную исполняемую спецификацию: фича-идея, баг-репорт или изменение продукта в структурированный спек до реализации, включая GitHub issues и техтребования. |
+| `technical-writer` | Написание, структурирование и ведение всех форм технической документации: README, API-доки, ранбуки, ADR, ченджлоги, онбординг-гайды и руководства пользователя. |
+| `write-comments` | Написание, добавление, обновление и ревью комментариев в коде. Использовать по запросу пользователя или когда нужно задокументировать функцию, модуль или API и улучшить качество комментариев. |
+| `xlsx` | Создание, чтение, редактирование и анализ электронных таблиц Excel (.xlsx, .xlsm, .xltx, .csv, .tsv): колонки, формулы, форматирование ячеек, финансовые модели, очистка данных, таблицы, диаграммы и конвертация форматов. |
 
 ### Тестирование, QA и отладка
 
 | Скил | Назначение |
 |------|------------|
-| `benchmark` | Performance benchmarking skill — baseline and compare page load times, Core Web Vitals, bundle sizes, and API response times. Use when the user wants to measure performance before and after a change, catch performance regressions in a PR, establish a performance baseline, or understand what is ma... |
-| `code-review` | Analyze code changes between two local Git branches and perform a comprehensive code review. Use ONLY for local git branch comparisons. Do NOT use when a GitLab or GitHub MR/PR URL or MR ID is provided — use gitlab-cli or github-cli skill instead. |
-| `code-reviewer` | Review code changes for bugs, security issues, performance problems, and style before shipping. Use when the user asks for a code review, wants to check a diff or PR, needs a second opinion on implementation, or says "review this", "check this code", or "is this safe to ship". |
-| `code-review-web` | Review web application code for bugs, security issues, performance problems, and stack-specific anti-patterns. Use this skill whenever the user wants to review code, debug a production issue, investigate a build failure, audit security, or check a PR before merging. Triggers on code review, revie... |
-| `commit-code` | Analyze code changes to prepare conventional commit message and commit to a new branch. |
-| `commit-message` | Write clean Conventional Commits messages and pull request descriptions from staged changes or diffs. Use when the user asks to write a commit message, commit their changes, describe a PR, open a pull request, summarise a branch, or says "write a commit", "create a PR", "what should I call this c... |
-| `debugger` | Systematic root-cause debugging skill. Use when the user has a bug, error, crash, unexpected behaviour, failing test, or performance issue and needs to find the root cause before fixing it. Iron law: no fixes without investigation first. |
-| `lg-token-saver` | Save 87% token usage. Zero install. Input+Output+Context optimization. 8 rules. 6 months production verified. |
-| `performance-optimization` | Diagnose and fix web performance issues including Core Web Vitals (LCP, INP, CLS), bundle size, asset optimization, render performance, and runtime efficiency. Use this skill whenever the user wants to improve page speed, fix Core Web Vitals, optimize assets, reduce bundle size, debug slow render... |
-| `performance-optimizer` | Expert performance analysis and optimization guidance. Use when the user asks about frontend optimization, API latency, database optimization, memory leaks, CPU bottlenecks, or profiling. |
-| `qa-engineer` | Live QA testing skill that finds bugs, fixes them with atomic commits, and re-verifies. Use when the user wants to test their app in a real browser, find bugs in a running application, run a QA pass before shipping, generate regression tests, or validate that a feature works end-to-end from the u... |
-| `qa-testing` | Run QA testing on a page, feature, or full site at one of three depth tiers (smoke, standard, full). Use this skill whenever the user asks to QA a page or site, run a smoke test after a deploy, verify a page before launch, or run a regression sweep. Triggers on QA, QA sweep, smoke test, regressio... |
-| `test` | Build or improve a UI testing strategy covering visual regression, interaction testing, and accessibility assertions. Use when the user asks to add tests, set up testing, fix flaky tests, improve test coverage, validate UI behavior, catch visual bugs, or establish confidence in shipping frontend ... |
-| `test-writer` | Generate or extend comprehensive test suites — unit, integration, E2E, and contract tests — for any language or framework. Use when the user asks to write tests, add coverage, test a specific function or module, set up a test framework, generate test cases from code, or validate behaviour with au... |
-| `token-optimizer` | Практическое руководство по снижению расхода токенов и стоимости API (промпт-кэширование, batch, выбор моделей). |
-| `token-saver` | Reduce avoidable token and API cost through task-aware model selection, context hygiene, concise responses, and disciplined tool use. Apply as an advisory policy on every turn. Actual savings vary by agent, model, provider, cache behavior, and workload; measure results instead of assuming a fixed... |
-| `token-saviour` | Выбор наиболее эффективного по токенам инструмента для задач кодинга вместо чтения целых файлов. |
-| `webapp-testing` | Automated end-to-end web application testing using Playwright. Use when the user wants to write automated tests for a web app, test frontend functionality, verify UI behaviour programmatically, debug interactions in a browser, capture screenshots of a running app, check for console errors, or tes... |
+| `benchmark` | Бенчмаркинг производительности: базовая линия и сравнение времени загрузки страниц, Core Web Vitals, размеров бандла и времени ответа API. Использовать для измерения до и после изменения, выявления регрессий в PR и понимания причин медленной работы. |
+| `code-review` | Анализ изменений между двумя локальными git-ветками и полное ревью кода. Только для локальных сравнений веток; для URL и ID MR/PR использовать github-cli или gitlab-cli. |
+| `code-reviewer` | Ревью изменений кода на баги, проблемы безопасности, производительности и стиль перед релизом. Использовать при просьбе проверить дифф или PR или получить второе мнение. |
+| `code-review-web` | Ревью веб-приложений: баги, безопасность, производительность и антипаттерны стека. Использовать для ревью кода, отладки продакшн-проблем, разбора ошибок сборки, аудита безопасности и проверки PR перед мержем. |
+| `commit-code` | Анализ изменений кода, подготовка conventional commit сообщения и коммит в новую ветку. |
+| `commit-message` | Чистые Conventional Commits и описания PR из застейдженных изменений или диффов. Использовать, когда нужно написать коммит, описать PR или резюмировать ветку. |
+| `debugger` | Систематическая отладка до корневой причины. Использовать при баге, ошибке, падении, неожиданном поведении, падающем тесте или проблеме производительности. Железный закон: никаких исправлений без исследования. |
+| `lg-token-saver` | Экономия 87% токенов без установки: оптимизация входа, выхода и контекста. 8 правил, проверенных в продакшне за 6 месяцев. |
+| `performance-optimization` | Диагностика и исправление проблем веб-производительности: Core Web Vitals (LCP, INP, CLS), размер бандла, оптимизация ассетов, рендер и эффективность рантайма. |
+| `performance-optimizer` | Экспертный анализ и оптимизация производительности: оптимизация фронтенда, задержки API, оптимизация БД, утечки памяти, узкие места CPU и профилирование. |
+| `qa-engineer` | Живое QA-тестирование: поиск багов, исправление атомарными коммитами и повторная проверка. Использовать при тестировании приложения в реальном браузере, QA перед релизом и генерации регрессионных тестов. |
+| `qa-testing` | QA-тестирование страницы, фичи или сайта на одном из трёх уровней глубины (smoke, standard, full): после деплоя, перед запуском, регрессионные прогоны. Проверка рендера, битых ссылок и загрузки изображений. |
+| `test` | Построение или улучшение стратегии тестирования UI: визуальный регрессионный тест, интеракционное тестирование и проверки доступности. |
+| `test-writer` | Генерация или расширение тестовых наборов: юнит, интеграционные, E2E и контрактные тесты для любого языка или фреймворка. |
+| `token-optimizer` | Практическое руководство по сокращению расхода токенов и стоимости LLM: организация файлов, гигиена контекста, выбор модели, prompt caching, Batch API, effort tuning и архитектура промптов. Использовать при вопросах об оптимизации токенов, кэшировании и стоимости API. |
+| `token-saver` | Снижение избегаемых расходов на токены и API: выбор модели по задаче, гигиена контекста, краткие ответы и дисциплинированное использование инструментов. Применять как рекомендательную политику на каждом ходу; реальную экономию измерять. |
+| `token-saviour` | Выбор самого токен-эффективного инструмента для задачи вместо рефлекторного чтения целых файлов и выгрузки сырого вывода команд в контекст. Использовать перед исследованием кода, поиском символов, планированием фичи или запуском многословных команд. |
+| `webapp-testing` | Автоматизированное сквозное тестирование веб-приложений на Playwright: тесты UI, проверка поведения, отладка взаимодействий в браузере, скриншоты и проверка консольных ошибок. |
 
 ### .agents/skills (отдельная библиотека)
 
 | Скил | Назначение |
 |------|------------|
-| `academy-guide` | Подбор курсов и обучающих материалов из Claude Academy (academy.claude.com) по продуктам Claude. |
-| `agent-browser` | Browser automation CLI for AI agents. Use when the user needs to interact with websites, including navigating pages, filling forms, clicking buttons, taking screenshots, extracting data, testing web apps, or automating any browser task. Triggers include requests to "open a website", "fill out a f... |
-| `algorithmic-art` | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to ... |
-| `ask-matt` | Ask which skill or flow fits your situation. A router over the skills in this repo. |
+| `academy-guide` | Обучающие материалы и подборки курсов Claude Academy. Использовать, когда пользователь спрашивает, как начать пользоваться продуктами Claude, или просит учебные материалы, курсы и гайды. |
+| `agent-browser` | CLI для автоматизации браузера в ИИ-агентах: навигация по страницам, заполнение форм, клики, скриншоты, извлечение данных, тестирование веб-приложений. Использовать для программного взаимодействия с сайтами, QA и баг-хунтов, а также для автоматизации Electron-приложений (VS Code, Slack, Figma, No... |
+| `algorithmic-art` | Создание алгоритмического искусства на p5.js с сидированным случайным и интерактивным исследованием параметров. Использовать, когда пользователь просит создать искусство кодом, генеративное искусство, флоу-поля или системы частиц. Создавать оригинальные работы, не копируя чужие. |
+| `ask-matt` | Подбор подходящего скила или процесса под вашу ситуацию. Маршрутизатор по скилам этого репозитория. |
 | `ask-nodumb` | Помогает разобрать продуктовую или UX-задачу до проектирования решения: увидеть скрытое предположение, отделить образ продукта от модели и технологии, найти наиболее ценный вопрос или следующий шаг. Использовать, когда нужно придумать или обсудить фичу, экран, флоу, редизайн, концепт, принцип инт... |
-| `canvas-design` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations. |
-| `changelog-discipline` | Write and maintain a CHANGELOG that records every completed code change without becoming a commit dump. Use after any code change in a project that has a changelog, when setting one up, when preparing a release, or when the user asks why something was built this way. Keep mechanical entries brief... |
-| `claude-api` | Справочник по Claude API / Anthropic SDK: модели, цены, параметры, стриминг, tool use, MCP, агенты. |
-| `claude-handoff` | Hand the current conversation off to a fresh background agent that picks up the work immediately. |
-| `codebase-design` | Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary. |
-| `deploy-to-vercel` | Deploy applications and websites to Vercel. Use when the user requests deployment actions like "deploy my app", "deploy and give me the link", "push this live", or "create a preview deployment". |
-| `diagnosing-bugs` | Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow. |
-| `discernment-nudge` | После содержательного ответа добавляет 2-3 уточняющих вопроса, проверяющих факты и допущения. |
-| `docx` | Use this skill whenever the user wants to create, read, edit, or manipulate Word documents (.docx files) or Word templates (.dotx files). Triggers include: any mention of 'Word doc', 'word document', '.docx', '.dotx', or requests to produce professional documents with formatting like tables of co... |
-| `domain-modeling` | Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a CONTEXT.md, or recording or editing an ADR. |
+| `canvas-design` | Создание красивых визуальных работ в документах .png и .pdf на основе дизайн-философии. Использовать, когда пользователь просит создать постер, произведение искусства, макет или другой статичный объект. Создавать оригинальные работы, не копируя чужих художников. |
+| `changelog-discipline` | Ведение CHANGELOG, фиксирующего каждое завершённое изменение кода, без превращения в свалок коммитов. Использовать после любых правок в проекте с ченджлогом, при его создании, подготовке релиза или вопросах о причинах архитектуры. Записи краткими; причины и отвергнутые альтернативы сохранять для ... |
+| `claude-api` | Справочник по Claude API и SDK Anthropic: идентификаторы моделей, цены, параметры, стриминг, tool use, MCP, агенты, кэширование, подсчёт токенов и миграция моделей. Читать перед работой с кодом, где упоминается Claude/Anthropic, или при вопросах об LLM. |
+| `claude-handoff` | Передать текущий разговор свежему фоновому агенту, который сразу продолжит работу. |
+| `codebase-design` | Общая терминология для проектирования глубоких модулей. Использовать, когда нужно спроектировать или улучшить интерфейс модуля, найти возможности углубления, решить, где проложить границу, сделать код более тестируемым или удобным для навигации ИИ. |
+| `deploy-to-vercel` | Деплой приложений и сайтов на Vercel. Использовать по запросам типа "задеплой мое приложение", "задеплой и дай ссылку", "запусти это в продакшн" или "создай превью-деплой". |
+| `diagnosing-bugs` | Цикл диагностики сложных багов и регрессий производительности. Использовать, когда пользователь говорит "диагностируй"/"отладь это" или сообщает о поломке, исключении, падении или замедлении. |
+| `discernment-nudge` | После содержательного ответа или черновика, которым пользователь может воспользоваться, задать 2-3 коротких вопроса-проверки: ключевые факты, допущения, упущенный контекст. Не чаще одного раза за диалог и не для тривиальных запросов. |
+| `docx` | Создание, чтение, редактирование и обработка документов Word (.docx) и шаблонов (.dotx): структура, оглавления, заголовки, нумерация страниц, поиск и замена, изображения, рецензирование. Использовать при любом упоминании Word-документов или запросе отчёта, письма, шаблона как .docx-файла. |
+| `domain-modeling` | Построение и уточнение доменной модели проекта. Использовать при обсуждении терминологии кодовой базы, написании или правке CONTEXT.md и при записи ADR. |
 | `edge-hunt` | Находит неочевидные корнеры задачи через пересечение состояний, данных, порядка действий, сбоев и параллельных изменений; превращает их в ожидаемое поведение и проверяемые сценарии. Использовать перед реализацией или ревью нетривиальной продуктовой, UX- или технической задачи; при изменении state... |
-| `expo-native-ui` | Framework (OSS). Build beautiful, native-feeling Expo screens. Covers Apple HIG styling, semantic colors, native controls, SF Symbols, media, animations, visual effects, gradients, storage, and responsive layout. For routing and navigation, use the expo-router skill. |
-| `find-skills` | Helps users discover and install agent skills when they ask questions like "how do I do X", "find a skill for X", "is there a skill that can...", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable ... |
-| `git-guardrails-claude-code` | Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code. |
-| `grilling` | Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases. |
-| `grill-me` | A relentless interview to sharpen a plan or design. |
-| `grill-with-docs` | A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go. |
-| `handoff` | Compact the current conversation into a handoff document for another agent to pick up. |
-| `implement` | Implement a piece of work based on a spec or set of tickets. |
-| `implement-spec` | Implement a specification in code. |
-| `improve-codebase-architecture` | Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick. |
-| `loop-me` | Grill me about specs for the workflows I want to build, within this workspace. |
-| `migrate-to-shoehorn` | Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data. |
+| `expo-native-ui` | Фреймворк (OSS) для создания красивых нативных экранов Expo. Охватывает стили Apple HIG, семантические цвета, нативные элементы, SF Symbols, медиа, анимации, визуальные эффекты, градиенты, хранилище и адаптивную вёрстку. Для маршрутизации использовать скил expo-router. |
+| `find-skills` | Поиск и установка скилов агента. Использовать, когда пользователь спрашивает "как сделать X", "найди скил для X" или интересуется расширением возможностей. |
+| `git-guardrails-claude-code` | Настройка хуков Claude Code для блокировки опасных git-команд (push, reset --hard, clean, branch -D и т. п.) до их выполнения. Использовать, чтобы предотвратить разрушительные операции или добавить защитные хуки git. |
+| `grilling` | Неустанно допрашивать пользователя о плане, решении или идее. Использовать, когда он хочет проверить свою логику на прочность или использует триггерные фразы про "grill". |
+| `grill-me` | Напористое интервью, чтобы отточить план или дизайн. |
+| `grill-with-docs` | Напористое интервью для оттачивания плана или дизайна, попутно создающее документацию (ADR и глоссарий). |
+| `handoff` | Сжать текущий диалог в документ передачи для другого агента. |
+| `implement` | Реализация работы по спецификации или набору тикетов. |
+| `implement-spec` | Реализация спецификации в коде. |
+| `improve-codebase-architecture` | Сканирование кодовой базы на возможности углубления, представление их в виде визуального HTML-отчёта, затем детальный разбор выбранной возможности вместе с пользователем. |
+| `loop-me` | Разобрать со мной спецификации воркфлоу, которые я хочу построить, в пределах этого воркспейса. |
+| `migrate-to-shoehorn` | Миграция тестовых файлов с утверждений через as на @total-typescript/shoehorn. Использовать, когда упоминается shoehorn, нужно заменить as в тестах или требуются частичные тестовые данные. |
 | `nodumb` | Проверить способ решения до того, как цена ошибки выросла. Использовать: перед нетривиальной фичей или дорогой развилкой; когда запрос описывает готовое решение вместо проблемы; при постановке нетривиальной задачи или фиксации предполагаемой причины в трекере; при переносе внешнего факта, исследо... |
-| `prototype` | Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like. |
-| `research` | Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent. |
-| `resolving-merge-conflicts` | Use when you need to resolve an in-progress git merge/rebase conflict. |
-| `retro` | Conduct a retrospective on a coding session. |
-| `scaffold-exercises` | Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set up a new course section. |
-| `setup-matt-pocock-skills` | Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills. |
-| `setup-pre-commit` | Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing. |
-| `setup-ts-deep-modules` | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolders and reachable only through its entry-point files. User-invoked. |
-| `slack-gif-creator` | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like "make me a GIF of X doing Y for Slack. |
+| `prototype` | Создание одноразового прототипа для проверки дизайн-вопроса. Использовать, когда нужно проверить, верна ли модель состояний или логика, или посмотреть, как должен выглядеть UI. |
+| `research` | Исследование вопроса по доверенным первоисточникам с записью выводов в markdown-файл в репозитории. Использовать, когда нужно изучить тему, собрать факты по API или делегировать чтение фоновому агенту. |
+| `resolving-merge-conflicts` | Разрешение конфликта незавершённого git merge/rebase. |
+| `retro` | Проведение ретроспективы сессии кодинга. |
+| `scaffold-exercises` | Создание структуры каталогов упражнений с разделами, задачами, решениями и пояснениями, проходящими линтинг. Использовать, когда нужно создать каркас упражнений, заглушки или новый раздел курса. |
+| `setup-matt-pocock-skills` | Настройка репозитория для инженерных скилов: трекер задач, словарь триажных меток и структура доменной документации. Запускать один раз перед первым использованием остальных инженерных скилов. |
+| `setup-pre-commit` | Настройка Husky pre-commit хуков с lint-staged (Prettier), проверкой типов и тестами в текущем репозитории. |
+| `setup-ts-deep-modules` | Подключение dependency-cruiser в TypeScript-репозиторий, чтобы каждый пакет был глубоким модулем: реализация скрыта в подпапках и доступна только через файлы точек входа. |
+| `slack-gif-creator` | Знания и утилиты для создания анимированных GIF, оптимизированных под Slack: ограничения, инструменты валидации и концепции анимации. |
 | `system-feedback` | Проверить, понятно ли пользователю, что произошло после действия, и предусмотрены ли состояния загрузки, пустоты и ошибки. Использовать при реализации сохранения, копирования, удаления, отправки, загрузки и синхронизации; при создании экранов с асинхронными данными; и при разборе интерфейса, кото... |
-| `tdd` | Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests. |
-| `teach` | Teach the user a new skill or concept, within this workspace. |
-| `to-questionnaire` | Turn a decision you can't fully answer into a questionnaire for someone else to fill in. |
-| `to-spec` | Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed. |
-| `to-tickets` | Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker). |
-| `triage` | Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write agent-ready briefs. |
-| `ui-ux-pro-max` | UI/UX design intelligence for web and mobile. Searchable local database with 50+ styles, 161 color palettes, 57 font pairings, 161 product types, 99 UX guidelines, and 25 chart types across 10 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, and HTML/CSS).... |
-| `vercel-cli-with-tokens` | Deploy and manage projects on Vercel using token-based authentication. Use when working with Vercel CLI using access tokens rather than interactive login — e.g. "deploy to vercel", "set up vercel", "add environment variables to vercel". |
-| `vercel-composition-patterns` | Паттерны React-композиции, которые масштабируются: compound components, render props, context. |
-| `vercel-optimize` | Use for Vercel cost and performance optimization on deployed projects, especially Next.js, SvelteKit, Nuxt, and limited Astro apps. Collect Vercel metrics, usage, project config, and code scan results first; investigate only metric-backed candidates; produce ranked recommendations grounded in ver... |
-| `vercel-react-best-practices` | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimizati... |
-| `vercel-react-native-skills` | Лучшие практики React Native и Expo для производительных мобильных приложений. |
-| `vercel-react-view-transitions` | Guide for implementing smooth, native-feeling animations using React's View Transition API (`<ViewTransition>` component, `addTransitionType`, and CSS view transition pseudo-elements). Use this skill whenever the user wants to add page transitions, animate route changes, create shared element ani... |
-| `wait-what` | Stop. That last message did not land: re-pitch it. |
-| `wayfinder` | Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear. |
-| `web-artifacts-builder` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts. |
-| `wizard` | Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can... |
-| `writing-beats` | Writing, exploit; assemble raw material into a journey of beats, grounding each term before a beat leans on it. |
-| `writing-for-agents` | Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md. |
-| `writing-fragments` | Writing, explore: mine raw fragments, no structure yet. |
-| `writing-guidelines` | Review docs/prose for Writing Guidelines compliance. Use when asked to "review my docs", "check writing style", "audit prose", "review docs voice and tone", or "check this page against the writing handbook". |
-| `writing-shape` | Writing, exploit: shape raw material into an article, paragraph by paragraph. |
+| `tdd` | Разработка через тестирование. Использовать для создания фич или исправления багов тест-первым подходом, при упоминании red-green-refactor или запросе интеграционных тестов. |
+| `teach` | Обучить пользователя новому навыку или концепции в пределах этого воркспейса. |
+| `to-questionnaire` | Превратить решение, которое вы не можете полностью обосновать, в анкету для заполнения кем-то другим. |
+| `to-spec` | Превратить текущий диалог в спецификацию и опубликовать её в трекере задач проекта: без интервью, только синтез уже обсуждённого. |
+| `to-tickets` | Разбить план, спецификацию или текущий диалог на набор тикетов-трассеров, каждый с указанием блокирующих границ, и опубликовать в настроенном трекере. |
+| `triage` | Проведение тикетов и внешних PR через конечный автомат триажных ролей: категоризация, проверка, при необходимости допрос и написание брифов, готовых для агента. |
+| `ui-ux-pro-max` | База знаний по UI/UX для веба и мобильных: 50+ стилей, 161 палитра, 57 пар шрифтов, 161 тип продукта, 99 UX-правил и 25 типов графиков под 10 стеков (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, HTML/CSS). Использовать при проектировании, создании или ревью UI. |
+| `vercel-cli-with-tokens` | Деплой и управление проектами на Vercel через токен-аутентификацию. Использовать с access-токенами вместо интерактивного входа, например для деплоя, настройки или добавления переменных окружения. |
+| `vercel-composition-patterns` | Паттерны композиции React, которые масштабируются: compound components, render props, context и переиспользуемые API. Использовать при рефакторинге компонентов с разрастанием булевых пропсов и при проектировании компонентных библиотек. |
+| `vercel-optimize` | Оптимизация стоимости и производительности Vercel для задеплоенных проектов (Next.js, SvelteKit, Nuxt, частично Astro). Сначала собрать метрики, использование и конфигурацию; исследовать только кандидатов, подтверждённых метриками; выдавать ранжированные рекомендации по проверенным файлам и докум... |
+| `vercel-react-best-practices` | Рекомендации по оптимизации React и Next.js от Vercel Engineering. Использовать при написании, ревью или рефакторинге React/Next.js-кода: компоненты, страницы, выборка данных, оптимизация бандла и производительности. |
+| `vercel-react-native-skills` | Лучшие практики React Native и Expo для создания производительных мобильных приложений: оптимизация списков, анимации, нативные модули и платформенные API. |
+| `vercel-react-view-transitions` | Руководство по плавным нативным анимациям через React View Transition API: переходы страниц, анимация смены маршрутов, общие элементы, вход/выход компонентов, переупорядочивание списков и интеграция с Next.js. |
+| `wait-what` | Стоп. Последнее сообщение не дошло: переформулируй заново. |
+| `wayfinder` | Планирование большого объёма работы (больше, чем может удержать одна сессия агента) как общей карты тикетов-решений в трекере и последовательное их разрешение, пока путь к цели не прояснится. |
+| `web-artifacts-builder` | Набор инструментов для создания сложных многосоставных HTML-артефактов claude.ai на современных веб-технологиях (React, Tailwind CSS, shadcn/ui). Использовать для сложных артефактов с состоянием, маршрутизацией и shadcn-компонентами. |
+| `wizard` | Генерация интерактивного bash-мастера, проводящего человека по шагам, которые может выполнить только он: настройка инфраструктуры, секретов CI, незнакомых сторонних дашбордов, разовых миграций. Не вызывать для шагов, которые агент может выполнить сам. |
+| `writing-beats` | Письмо, этап эксплуат: собрать сырой материал в путешествие по битам, заземляя каждый термин, прежде чем бит на него опрётся. |
+| `writing-for-agents` | Написание документов для агентов. Использовать при создании или правке скилов и изменении AGENTS.md или CLAUDE.md. |
+| `writing-fragments` | Письмо, этап исследование: добыть сырые фрагменты, пока без структуры. |
+| `writing-guidelines` | Проверка документации и прозы на соответствие рекомендациям по письму. Использовать по запросам "проверь мои доки", "проверь стиль", "аудит прозы" или "сверь голос и тон со справочником". |
+| `writing-shape` | Письмо, этап эксплуат: оформить сырой материал в статью, абзац за абзацем. |
 
 ## Прочее (без категории)
 
 | Скил | Назначение |
 |------|------------|
-| `_template` | Шаблон для создания новых скилов. |
+| `_template` | Шаблон описания скила. |
 
