@@ -15,6 +15,56 @@
           "name": "Qwythos-9B-Claude-Mythos-5-1M-GGUF"
         }
       }
+    },
+    "explabs": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Experiential Labs",
+      "options": {
+        "baseURL": "https://api.experientiallabs.ai/v1",
+        "apiKey": "{env:EXPLABS_API_KEY}"
+      },
+      "models": {
+        "claude-opus-5.5": {
+          "name": "claude-opus-5.5",
+          "limit": { "context": 1000000, "output": 128000 },
+          "cost": { "input": 4, "output": 20 }
+        },
+        "claude-sonnet-5": {
+          "name": "claude-sonnet-5",
+          "limit": { "context": 1000000, "output": 128000 },
+          "cost": { "input": 2, "output": 10 }
+        },
+        "deepseek-v4-flash": {
+          "name": "deepseek-v4-flash",
+          "limit": { "context": 1048576, "output": 384000 },
+          "cost": { "input": 0.042448, "output": 0.084896 }
+        },
+        "deepseek-v4-pro": {
+          "name": "deepseek-v4-pro",
+          "limit": { "context": 1048576, "output": 393216 },
+          "cost": { "input": 0.413772, "output": 0.827544 }
+        },
+        "gpt-5.5": {
+          "name": "gpt-5.5",
+          "limit": { "context": 1050000, "output": 128000 },
+          "cost": { "input": 5, "output": 30 }
+        },
+        "gpt-5.2-codex": {
+          "name": "gpt-5.2-codex",
+          "limit": { "context": 400000, "output": 128000 },
+          "cost": { "input": 1.75, "output": 14 }
+        },
+        "gemini-3.8-flash": {
+          "name": "gemini-3.8-flash",
+          "limit": { "context": 1048576, "output": 65536 },
+          "cost": { "input": 0.75, "output": 3.75 }
+        },
+        "claude-haiku-4.5": {
+          "name": "claude-haiku-4.5",
+          "limit": { "context": 200000, "output": 64000 },
+          "cost": { "input": 1, "output": 5 }
+        }
+      }
     }
   },
   "mcp": {
