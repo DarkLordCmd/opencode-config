@@ -1,9 +1,11 @@
 #requires -RunAsAdministrator
 # Installs the Windows-side GUI/driver tools. Runs elevated (UAC).
-# Log: E:\pintest\tmp\install-gui.log   Result marker: E:\pintest\tmp\install-gui.done
+# Log: <root>\tmp\install-gui.log   Result marker: <root>\tmp\install-gui.done
+param([string]$Root = 'E:\pintest')
+
 $ErrorActionPreference = 'Continue'
-$log = 'E:\pintest\tmp\install-gui.log'
-$done = 'E:\pintest\tmp\install-gui.done'
+$log = Join-Path $Root 'tmp\install-gui.log'
+$done = Join-Path $Root 'tmp\install-gui.done'
 New-Item -ItemType Directory -Force -Path (Split-Path $log) | Out-Null
 
 function Log($m) { $m | Tee-Object -FilePath $log -Append }

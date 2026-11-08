@@ -89,10 +89,24 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `-SkipRea` | без каталога REA |
 | `-WithLab` | поднять DVWA (:8181) и Juice Shop (:8282) |
 | `-WithBloodhound` | поднять BloodHound CE на `127.0.0.1:8081` |
+| `-WithGui` | поставить Burp, Ghidra, x64dbg, VeraCrypt, Sysinternals (нужен UAC) |
 | `-WithMsf` | включить Metasploit в образ |
 | `-Force` | пересобрать образ, даже если он уже есть |
 
 Требования: PowerShell 5.1+, git, Docker Desktop для тулинга. Права администратора не нужны: конфиг идёт в пользовательский профиль, остальное — на второй диск.
+
+### Что ставится автоматически, а что остаётся вручную
+
+| Автоматически | Вручную |
+|---|---|
+| `opencode.json`, `AGENTS.md`, 447 скиллов в `skills/`, 61 в `agents-skills/` | Docker Desktop, git, Python — установщик только проверяет наличие |
+| Воркспейс на втором диске со всей структурой и `.gitignore` | VeraCrypt-контейнер — `new-vault.ps1`, нужна ваша парольная фраза |
+| Тулинг в `<root>\tools`, лаунчеры в пользовательском PATH | Вход в тестовый профиль браузера — `pt-browser.cmd`, пароли вводите вы |
+| Образ `pt/kali` с полным стеком (10–20 мин, ~14 ГБ) | Клиентская инфраструктура, релеи, доступы |
+| Каталог Awesome-REA (62 МБ) | Клиентские данные — не попадают никогда |
+| По флагам: лаборатория, BloodHound CE, GUI-инструменты | |
+
+Внутри образа `pt/kali`: nmap, masscan, netexec, impacket, ffuf, feroxbuster, gobuster, sqlmap, nuclei, subfinder, httpx, naabu, amass, hashcat, john, hydra, responder, chisel, ligolo-ng, certipy, bloodhound.py, enum4linux-ng, smbclient, proxychains4, socat, nc, openssl, go, gcc, mingw-w64, python3, jadx, apktool, frida, interactsh, python-docx и SecLists (6 306 файлов). Metasploit добавляется флагом `-WithMsf`.
 
 Если второго диска нет или он называется иначе, передайте `-Root` явно. Установщик проверяет существование диска и свободное место и не станет молча ставить всё на системный.
 

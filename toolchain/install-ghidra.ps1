@@ -1,6 +1,9 @@
-# Portable Ghidra: no admin, no installer. Extracts to E:\pintest\tools\ghidra.
+# Portable Ghidra: no admin, no installer. Extracts to <root>\tools\ghidra.
+param([string]$Root = 'E:\pintest')
+
 $ErrorActionPreference = 'Stop'
-$root = 'E:\pintest\tools'
+$root = Join-Path $Root 'tools'
+New-Item -ItemType Directory -Force -Path $root | Out-Null
 $zip = Join-Path $root 'ghidra.zip'
 $dst = Join-Path $root 'ghidra'
 

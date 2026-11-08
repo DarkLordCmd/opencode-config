@@ -31,6 +31,7 @@ param(
     [switch]$SkipRea,
     [switch]$WithLab,
     [switch]$WithBloodhound,
+    [switch]$WithGui,
     [switch]$WithMsf,
     [switch]$Force,
     [switch]$DryRun
@@ -161,6 +162,39 @@ if (Test-Path (Join-Path $repo 'toolchain')) {
     }
 } else {
     Warn 'toolchain/ not present in the repository - skipping'
+}
+
+# launchers on PATH (user scope, no elevation)
+$binDir = Join-Path $Root 'tools\bin'
+if (Test-Path $binDir) {
+    Invoke-Step "add $binDir to the user PATH" {
+        $userPath = [Environment]::GetEnvironmentVariable('Path', 'User')
+        if ($userPath -notlike "*$binDir*") {
+            [Environment]::SetEnvironmentVariable('Path', ($userPath.TrimEnd(';') + ';' + $binDir), 'User')
+        }
+    }
+}
+
+# ---------------------------------------------------------------- GUI tools (optional)
+if ($WithGui) {
+    Head 'GUI tools (Burp, Ghidra, x64dbg, VeraCrypt, Sysinternals)'
+    $guiScript = Join-Path $Root 'tools\install-gui.ps1'
+    if (Test-Path $guiScript) {
+        Info 'winget needs elevation - a UAC prompt will appear'
+        Invoke-Step 'install GUI tools via winget' {
+            Start-Process powershell -Verb RunAs -Wait -ArgumentList @(
+                '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $guiScript, '-Root', $Root)
+        }
+    } else {
+        Warn "install-gui.ps1 not found at $guiScript"
+    }
+
+    $ghidraScript = Join-Path $Root 'tools\install-ghidra.ps1'
+    if (Test-Path $ghidraScript) {
+        Invoke-Step 'install portable Ghidra (no elevation)' {
+            & powershell -ExecutionPolicy Bypass -NoProfile -File $ghidraScript -Root $Root
+        }
+    }
 }
 
 # ---------------------------------------------------------------- docker image
