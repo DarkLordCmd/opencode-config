@@ -1,4 +1,4 @@
-/---
+---
 name: research-agent
 description: Deep research and R&D investigation skill. Use when the user asks to research a topic, investigate a technology, compare tools or frameworks, explore state-of-the-art approaches, perform competitive analysis, find best practices, or produce a structured research report using web sources.
 ---

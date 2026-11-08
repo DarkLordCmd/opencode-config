@@ -1,4 +1,3 @@
-
 ---
 name: spec-author
 description: Turn vague intent into a precise, executable specification. Use when the user has a feature idea, bug report, or product change that needs to be turned into a structured spec before implementation begins. Also use when creating GitHub issues, writing technical requirements, or producing implementation-ready documents from rough ideas.

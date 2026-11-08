@@ -1,4 +1,4 @@
-﻿# opencode-config
+# opencode-config
 
 Приватный репозиторий с конфигурацией и библиотекой установленных скилов для [opencode](https://opencode.ai) — CLI-агента для разработки.
 
@@ -10,7 +10,7 @@
 |------|---------|
 | `opencode.json` | Основной конфиг: провайдеры, плагины, MCP-серверы |
 | `AGENTS.md` | Инструкции-правила для агента (distillation, репауза и т.п.) |
-| `skills/` | 425 скилов из `~/.config/opencode/skills` |
+| `skills/` | 447 скилов из `~/.config/opencode/skills` |
 | `agents-skills/` | 61 скил из `~/.agents/skills` |
 
 Исключено из репозитория через `.gitignore`: `node_modules`, `package.json`, `bun.lock`, `package-lock.json` — зависимости при переносе ставятся заново.
