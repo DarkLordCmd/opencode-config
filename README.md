@@ -91,6 +91,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `-WithBloodhound` | поднять BloodHound CE на `127.0.0.1:8081` |
 | `-WithGui` | поставить Burp, Ghidra, x64dbg, VeraCrypt, Sysinternals (нужен UAC) |
 | `-WithMsf` | включить Metasploit в образ |
+| `-Verify` | после установки прогнать проверки и вернуть ненулевой код при провале |
 | `-Force` | пересобрать образ, даже если он уже есть |
 
 Требования: PowerShell 5.1+, git, Docker Desktop для тулинга. Права администратора не нужны: конфиг идёт в пользовательский профиль, остальное — на второй диск.
@@ -109,6 +110,40 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 Внутри образа `pt/kali`: nmap, masscan, netexec, impacket, ffuf, feroxbuster, gobuster, sqlmap, nuclei, subfinder, httpx, naabu, amass, hashcat, john, hydra, responder, chisel, ligolo-ng, certipy, bloodhound.py, enum4linux-ng, smbclient, proxychains4, socat, nc, openssl, go, gcc, mingw-w64, python3, jadx, apktool, frida, interactsh, python-docx и SecLists (6 306 файлов). Metasploit добавляется флагом `-WithMsf`.
 
 Если второго диска нет или он называется иначе, передайте `-Root` явно. Установщик проверяет существование диска и свободное место и не станет молча ставить всё на системный.
+
+### Проверка после установки
+
+Флаг `-Verify` превращает установку в «поставил и подтвердил»: прогоняет проверки, пишет отчёт в `<root>\verify-install.txt` и возвращает ненулевой код, если что-то не на месте.
+
+| Проверка | Что означает |
+|---|---|
+| `config AGENTS.md`, `config opencode.json` | Конфиг на месте |
+| `skills installed`, `agents-skills` | 400+ и 50+ каталогов скиллов |
+| `workspace structure`, `toolchain in workspace` | Воркспейс и скрипты развёрнуты |
+| `launchers published`, `launchers on user PATH` | 9 из 9 лаунчеров, PATH настроен |
+| `image pt/kali:latest` | Образ собран, размер показан |
+| `toolchain inside the image` | `pt-check` внутри контейнера: ни одного `MISSING` |
+| `REA catalogue` | Каталог на месте |
+| `lab containers`, `BloodHound UI`, `Burp`, `VeraCrypt`, `Ghidra` | Только для запрошенных флагов |
+
+Фактический вывод на рабочей машине:
+
+```text
+=== Verification ===
+  [+] config AGENTS.md : present
+  [+] config opencode.json : present
+  [+] skills installed : 447 dirs
+  [+] agents-skills : 61 dirs
+  [+] workspace structure : 7 core dirs
+  [+] toolchain in workspace : build.ps1 present
+  [+] launchers published : 9/9
+  [+] launchers on user PATH : set
+  [+] image pt/kali:latest : 13.9 GB
+  [+] toolchain inside the image : pt-check: all present
+  [+] REA catalogue : present
+
+  verified: 11/11 checks passed
+```
 
 ### Ручной путь
 

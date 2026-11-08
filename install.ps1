@@ -33,6 +33,7 @@ param(
     [switch]$WithBloodhound,
     [switch]$WithGui,
     [switch]$WithMsf,
+    [switch]$Verify,
     [switch]$Force,
     [switch]$DryRun
 )
@@ -151,6 +152,7 @@ tools/ghidra/
 tools/sysinternals/
 tools/opencode-config-sync/
 *.zip
+verify-install.txt
 '@
 Invoke-Step 'write .gitignore' { Set-Content -Path (Join-Path $Root '.gitignore') -Value $gitignore -Encoding utf8 }
 
@@ -277,6 +279,114 @@ if ($hasGit -and -not (Test-Path (Join-Path $Root '.git'))) {
         & git -C $Root add -A
         & git -C $Root -c user.name='operator' -c user.email='operator@local' commit -q -m 'chore: initialise engagement workspace' 2>&1 | Out-Null
     }
+}
+
+# ---------------------------------------------------------------- verification
+if ($Verify -and -not $DryRun) {
+    Head 'Verification'
+    $results = @()
+
+    function Check([string]$name, [scriptblock]$test) {
+        $detail = $null
+        $ok = $false
+        try {
+            $detail = & $test
+            $ok = [bool]$detail
+        } catch {
+            $ok = $false
+        }
+        if ($ok) { Ok ("{0} : {1}" -f $name, $detail) } else { Fail $name }
+        $script:results += [pscustomobject]@{ Item = $name; Ok = $ok; Detail = "$detail" }
+    }
+
+    $cfgDir = Join-Path $env:USERPROFILE '.config\opencode'
+    $binDir = Join-Path $Root 'tools\bin'
+    $ptPs   = Join-Path $Root 'tools\pt.ps1'
+
+    # config and skills
+    Check 'config AGENTS.md'      { if (Test-Path (Join-Path $cfgDir 'AGENTS.md')) { 'present' } }
+    Check 'config opencode.json'  { if (Test-Path (Join-Path $cfgDir 'opencode.json')) { 'present' } }
+    Check 'skills installed'      { $n = (Get-ChildItem (Join-Path $cfgDir 'skills') -Directory -ErrorAction SilentlyContinue).Count; if ($n -ge 400) { "$n dirs" } }
+    Check 'agents-skills'         { $n = (Get-ChildItem (Join-Path $env:USERPROFILE '.agents\skills') -Directory -ErrorAction SilentlyContinue).Count; if ($n -ge 50) { "$n dirs" } }
+
+    # workspace
+    Check 'workspace structure' {
+        $need = 'notes', 'scans', 'loot', 'pocs', 'reports', 'tools', 'payloads'
+        $missing = $need | Where-Object { -not (Test-Path (Join-Path $Root $_)) }
+        if (-not $missing) { "$($need.Count) core dirs" }
+    }
+    Check 'toolchain in workspace' { if (Test-Path (Join-Path $Root 'tools\build.ps1')) { 'build.ps1 present' } }
+
+    # launchers
+    Check 'launchers published' {
+        $need = 'burp', 'ghidra', 'x64dbg', 'x32dbg', 'veracrypt', 'accesschk', 'procdump', 'psexec', 'sigcheck'
+        $have = @($need | Where-Object { Test-Path (Join-Path $binDir "$_.cmd") })
+        if ($have.Count -eq $need.Count) { "$($have.Count)/$($need.Count)" }
+    }
+    Check 'launchers on user PATH' {
+        $up = [Environment]::GetEnvironmentVariable('Path', 'User')
+        if ($up -like "*$binDir*") { 'set' }
+    }
+
+    # docker image and toolchain inside it
+    if ($dockerUp) {
+        Check 'image pt/kali:latest' {
+            $size = & docker image inspect 'pt/kali:latest' --format '{{.Size}}' 2>$null
+            if ($LASTEXITCODE -eq 0 -and $size) { "$([math]::Round([double]$size/1GB,1)) GB" }
+        }
+        Check 'toolchain inside the image' {
+            if (-not (Test-Path $ptPs)) { return }
+            $out = & powershell -ExecutionPolicy Bypass -NoProfile -File $ptPs -Cmd 'pt-check' 2>&1 | Out-String
+            $missing = ([regex]::Matches($out, 'MISSING')).Count
+            if ($missing -eq 0) { 'pt-check: all present' }
+            else { Write-Host "      $missing tools missing (run pt-check for the list)" -ForegroundColor DarkYellow; $false }
+        }
+    } else {
+        Warn 'docker not running - image and container checks skipped'
+    }
+
+    # REA
+    Check 'REA catalogue' { if (Test-Path (Join-Path $Root 'tools\awesome-rea\scripts\catalog.py')) { 'present' } }
+
+    # optional components, only if they were requested
+    if ($WithLab -and $dockerUp) {
+        Check 'lab containers' {
+            $n = @(& docker ps --filter 'name=lab-' --format '{{.Names}}' 2>$null | Where-Object { $_ }).Count
+            if ($n -ge 2) { "$n running" }
+        }
+    }
+    if ($WithBloodhound -and $dockerUp) {
+        Check 'BloodHound UI' {
+            try {
+                $r = Invoke-WebRequest 'http://127.0.0.1:8081/ui/login' -UseBasicParsing -TimeoutSec 6
+                if ($r.StatusCode -eq 200) { 'HTTP 200' }
+            } catch { }
+        }
+    }
+    if ($WithGui) {
+        Check 'Burp'      { if (Test-Path 'C:\Program Files\BurpSuiteCommunity\BurpSuiteCommunity.exe') { 'present' } }
+        Check 'VeraCrypt' { if (Test-Path 'C:\Program Files\VeraCrypt\VeraCrypt.exe') { 'present' } }
+        Check 'Ghidra'    { if (Test-Path (Join-Path $Root 'tools\ghidra\ghidraRun.bat')) { 'present' } }
+    }
+
+    # report
+    $failed = @($results | Where-Object { -not $_.Ok })
+    $reportPath = Join-Path $Root 'verify-install.txt'
+    $lines = @("opencode-config install verification - $(Get-Date -Format 'yyyy-MM-dd HH:mm')", '')
+    $lines += $results | ForEach-Object { "{0,-34} {1}  {2}" -f $_.Item, $(if ($_.Ok) { 'OK  ' } else { 'FAIL' }), $_.Detail }
+    $lines += '', ("passed: {0}/{1}" -f ($results.Count - $failed.Count), $results.Count)
+    $lines | Set-Content $reportPath -Encoding utf8
+
+    Write-Host ''
+    if ($failed.Count -eq 0) {
+        Write-Host ("  verified: {0}/{0} checks passed" -f $results.Count) -ForegroundColor Green
+    } else {
+        Write-Host ("  verified: {0}/{1} passed, {2} failed" -f ($results.Count - $failed.Count), $results.Count, $failed.Count) -ForegroundColor Red
+        $failed | ForEach-Object { Write-Host ("    - " + $_.Item) -ForegroundColor Red }
+        Write-Host ("  report: $reportPath") -ForegroundColor Yellow
+        exit 1
+    }
+    Write-Host ("  report: $reportPath") -ForegroundColor Gray
 }
 
 # ---------------------------------------------------------------- summary
